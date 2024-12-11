@@ -18,7 +18,7 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP }}        # 引用 GitHub Secrets 中的 IP
         username: ubuntu
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: ${{ secrets.SSH_PASSWORD }} # 引用 GitHub Secrets 中的密码
         port: 22
         script: |
           cd /home/ubuntu/qqq_blog

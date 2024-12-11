@@ -3,26 +3,24 @@ name: Build and Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # 当 push 到 main 分支时触发
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout code
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # SSH to remote server and execute commands
     - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.3
       with:
-        host: 119.91.218.8                      # 服务器 IP
-        username: ubuntu                        # SSH 用户名
-        key: ${{ secrets.SSH_PRIVATE_KEY }}     # SSH 私钥（在 GitHub Secrets 中配置）
-        port: 22                                # SSH 端口（默认是 22）
+        host: ${{ secrets.SERVER_IP }}        # 引用 GitHub Secrets 中的 IP
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
         script: |
-          cd /path/to/your/repo                 # 进入服务器上的仓库目录
-          git pull                              # 拉取最新代码
-          hugo                                  # 编译静态文件
+          cd /path/to/your/repo
+          git pull
+          hugo

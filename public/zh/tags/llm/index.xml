@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LLM on qqq的博客</title>
+    <link>http://119.91.218.8/zh/tags/llm/</link>
+    <description>Recent content in LLM on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 11 Aug 2024 16:12:08 +0000</lastBuildDate>
+    <atom:link href="http://119.91.218.8/zh/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
+      <link>http://119.91.218.8/zh/posts/1647/</link>
+      <pubDate>Sun, 11 Aug 2024 16:12:08 +0000</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1647/</guid>
+      <description>&lt;h2 id=&#34;2-背景&#34;&gt;2 背景&lt;/h2&gt;
+&lt;p&gt;我们提供了一些关于现代硬件（GPU）上常见深度学习操作性能特性的背景信息，并描述了注意力机制的标准实现。&lt;/p&gt;
+&lt;h3 id=&#34;21-硬件性能&#34;&gt;2.1 硬件性能&lt;/h3&gt;
+&lt;p&gt;我们主要关注GPU。其他硬件加速器的性能类似。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

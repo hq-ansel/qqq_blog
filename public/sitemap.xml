@@ -1,46 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://example.org/</loc>
-    <lastmod>2024-12-11T14:10:01+08:00</lastmod>
-  </url><url>
-    <loc>https://example.org/posts/</loc>
-    <lastmod>2024-12-11T14:10:01+08:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/%23%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/cuda/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/idc/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/pytorch/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/posts/1429/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/posts/1556/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/posts/1609/</loc>
-    <lastmod>2024-12-11T04:09:30+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/categories/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>http://119.91.218.8/zh/sitemap.xml</loc>
+    
+      <lastmod>2024-12-11T14:10:01+08:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>

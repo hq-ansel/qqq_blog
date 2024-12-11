@@ -5,21 +5,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | My New Hugo Site</title>
+<title>Posts | qqq的博客</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - My New Hugo Site">
+<meta name="description" content="Posts - qqq的博客">
 <meta name="author" content="">
-<link rel="canonical" href="https://example.org/posts/">
+<link rel="canonical" href="http://119.91.218.8/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://119.91.218.8/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://119.91.218.8/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://119.91.218.8/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://119.91.218.8/apple-touch-icon.png">
+<link rel="mask-icon" href="http://119.91.218.8/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://example.org/posts/index.xml">
-<link rel="alternate" hreflang="en" href="https://example.org/posts/">
+<link rel="alternate" type="application/rss+xml" href="http://119.91.218.8/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://119.91.218.8/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,10 +56,10 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://example.org/posts/">
-  <meta property="og:site_name" content="My New Hugo Site">
+</noscript><meta property="og:url" content="http://119.91.218.8/posts/">
+  <meta property="og:site_name" content="qqq的博客">
   <meta property="og:title" content="Posts">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Posts">
@@ -75,7 +75,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://119.91.218.8/posts/"
     }
   ]
 }
@@ -97,7 +97,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://119.91.218.8/" accesskey="h" title="qqq的博客 (Alt + H)">qqq的博客</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -134,6 +134,39 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">电源故障查询指令
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ipmitool sdr elist 命令用于显示系统传感器的状态信息。
+SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。
+1. SEL (System Event Log) SEL 代表 System Event Log，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。SEL 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。
+命令示例: 使用 ipmitool 查看 SEL： sudo ipmitool sel list 这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。 2. SDR (Sensor Data Record) SDR 代表 Sensor Data Record，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。SDR 是 IPMI 系统中用于监控和管理硬件状态的核心部分。
+命令示例: 使用 ipmitool 查看 SDR： sudo ipmitool sdr 这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。 总结： SEL 用于记录和查看系统事件，帮助诊断和排除故障。 SDR 用于存储和管理传感器数据，实时监控系统的各项参数。 了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。
+输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：
+PS1 Status:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>December 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
+  <a class="entry-link" aria-label="post link to 电源故障查询指令" href="http://119.91.218.8/posts/1556/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">记录一次编译pytorch 的cuda插件的踩坑过程
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
+[1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g&#43;&#43;版本
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>December 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
+  <a class="entry-link" aria-label="post link to 记录一次编译pytorch 的cuda插件的踩坑过程" href="http://119.91.218.8/posts/1609/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">常用git操作
     </h2>
   </header>
@@ -156,46 +189,40 @@ git revert &lt;commit-hash&gt; 这个命令会生成一个新的提交来撤销�
 使用这些命令时需要谨慎，特别是 git reset --hard，因为这会丢失所有未提交的更改，无法恢复。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>December 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 常用git操作" href="https://example.org/posts/1429/"></a>
+  <footer class="entry-footer"><span title='2024-12-10 04:09:30 +0000 UTC'>December 10, 2024</span>&nbsp;·&nbsp;heqi</footer>
+  <a class="entry-link" aria-label="post link to 常用git操作" href="http://119.91.218.8/posts/1429/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">电源故障查询指令
+    <h2 class="entry-hint-parent">FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness
     </h2>
   </header>
   <div class="entry-content">
-    <p>ipmitool sdr elist 命令用于显示系统传感器的状态信息。
-SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。
-1. SEL (System Event Log) SEL 代表 System Event Log，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。SEL 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。
-命令示例: 使用 ipmitool 查看 SEL： sudo ipmitool sel list 这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。 2. SDR (Sensor Data Record) SDR 代表 Sensor Data Record，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。SDR 是 IPMI 系统中用于监控和管理硬件状态的核心部分。
-命令示例: 使用 ipmitool 查看 SDR： sudo ipmitool sdr 这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。 总结： SEL 用于记录和查看系统事件，帮助诊断和排除故障。 SDR 用于存储和管理传感器数据，实时监控系统的各项参数。 了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。
-输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：
-PS1 Status:
+    <p>2 背景 我们提供了一些关于现代硬件（GPU）上常见深度学习操作性能特性的背景信息，并描述了注意力机制的标准实现。
+2.1 硬件性能 我们主要关注GPU。其他硬件加速器的性能类似。
+GPU内存层次结构
+GPU的内存层次结构（图1左侧）包含多种不同大小和速度的内存，其中较小的内存速度更快。例如，A100 GPU具有40-80GB的高带宽内存（HBM），其带宽为1.5-2.0TB/s，并且每个108个流处理器（streaming multiprocessors）中的每个都具有192KB的片上SRAM，带宽估计为19TB/s左右。片上SRAM的速度比HBM快一个数量级，但其大小则小了许多数量级。随着计算速度相对于内存速度的提升，操作越来越受到内存（HBM）访问的瓶颈影响。因此，利用快速的SRAM变得更加重要。
+执行模型
+GPU拥有大量线程来执行一个操作（称为kernel）。每个kernel从HBM加载输入到寄存器和SRAM中，进行计算，然后将输出写入HBM。
+性能特性
+根据计算和内存访问的平衡，操作可以分为计算受限或内存受限。这通常通过算术强度来衡量，算术强度是每字节内存访问的算术操作数量。
+计算受限：操作的时间取决于算术操作的数量，而访问HBM的时间则要少得多。典型的例子包括具有大内维度的矩阵乘法和具有大量通道的卷积。
+内存受限：操作的时间取决于内存访问的数量，而计算所花费的时间则要少得多。例子包括大多数其他操作：元素级操作（例如，激活、dropout），以及归约操作（例如，求和、softmax、批量归一化、层归一化）。
+内核融合
+加速内存受限操作的最常见方法是内核融合：如果有多个操作应用于相同的输入，则输入可以从HBM中加载一次，而不是为每个操作多次加载。编译器可以自动融合许多元素级操作。然而，在模型训练的背景下，中间值仍需要写入HBM以供反向传播使用，从而降低了简单内核融合的效果。
+2.2 标准注意力机制实现 给定输入序列 $Q, K, V ∈ R^{N\times d}$，其中 𝑁 是序列长度，𝑑 是头部维度，我们需要计算注意力输出$O ∈ R^{N\times d}$: $$ S =QK^T\in R^{N\times N},\quad P=softmax(S)\in R^{N\times N},\quad O=PV\in R^{N\times N} $$ 其中 softmax 是按行应用【applied row-wise】的。
+标准的注意力机制实现将矩阵 S 和 P 物化【materialize】到高带宽内存（HBM），这需要 𝑂(𝑁²) 的内存。通常 𝑁 远大于 𝑑（例如，对于 GPT-2，𝑁 = 1024 而 𝑑 = 64）。我们在算法0中描述了标准注意力机制的实现。由于部分或大多数操作都是内存受限的（例如 softmax），大量的内存访问会导致较慢的实际运行时间。
+这个问题因应用于注意力矩阵的其他元素级操作而加剧，例如应用于 S 的掩码操作或应用于 P 的 dropout。因此，已有许多尝试将几个元素级操作融合在一起，例如将掩码与 softmax 融合。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>December 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 电源故障查询指令" href="https://example.org/posts/1556/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">记录一次编译pytorch 的cuda插件的踩坑过程
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
-[1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g&#43;&#43;版本
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>December 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 记录一次编译pytorch 的cuda插件的踩坑过程" href="https://example.org/posts/1609/"></a>
+  <footer class="entry-footer"><span title='2024-08-11 16:12:08 +0000 UTC'>August 11, 2024</span>&nbsp;·&nbsp;heqi</footer>
+  <a class="entry-link" aria-label="post link to FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness" href="http://119.91.218.8/posts/1647/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://example.org/">My New Hugo Site</a></span> · 
+        <span>&copy; 2024 <a href="http://119.91.218.8/">qqq的博客</a></span> · 
 
     <span>
         Powered by

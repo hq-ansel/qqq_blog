@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>开发八股 on My New Hugo Site</title>
-    <link>https://example.org/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
-    <description>Recent content in 开发八股 on My New Hugo Site</description>
+    <title>开发八股 on qqq的博客</title>
+    <link>http://119.91.218.8/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
+    <description>Recent content in 开发八股 on qqq的博客</description>
     <generator>Hugo -- 0.139.3</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 10 Dec 2024 04:09:30 +0000</lastBuildDate>
+    <atom:link href="http://119.91.218.8/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>常用git操作</title>
-      <link>https://example.org/posts/1429/</link>
-      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>https://example.org/posts/1429/</guid>
+      <link>http://119.91.218.8/posts/1429/</link>
+      <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1429/</guid>
       <description>&lt;h3 id=&#34;丢弃更改&#34;&gt;丢弃更改&lt;/h3&gt;
 &lt;h4 id=&#34;1-丢弃工作区的未暂存更改&#34;&gt;1. &lt;strong&gt;丢弃工作区的未暂存更改&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;如果你在工作区修改了文件但尚未暂存（使用 &lt;code&gt;git add&lt;/code&gt;），可以使用以下命令将文件恢复到上一次提交时的状态：&lt;/p&gt;

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>记录一次编译pytorch 的cuda插件的踩坑过程 | qqq的博客</title>
+<meta name="keywords" content="关键字1, 关键字2">
+<meta name="description" content="今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+
+
+[1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89
+
+FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o
+
+/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers
+
+  typedef float _Float32;
+
+                ^
+
+  
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers
+
+  typedef double _Float64;
+
+
+事实上只要清理干净使用的gcc和g&#43;&#43;版本">
+<meta name="author" content="heqi">
+<link rel="canonical" href="http://119.91.218.8/zh/posts/1609/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://119.91.218.8/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://119.91.218.8/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://119.91.218.8/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://119.91.218.8/apple-touch-icon.png">
+<link rel="mask-icon" href="http://119.91.218.8/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://119.91.218.8/zh/posts/1609/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1609/">
+  <meta property="og:site_name" content="qqq的博客">
+  <meta property="og:title" content="记录一次编译pytorch 的cuda插件的踩坑过程">
+  <meta property="og:description" content="今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 [1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g&#43;&#43;版本">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-11T04:09:30+00:00">
+    <meta property="article:modified_time" content="2024-12-11T04:09:30+00:00">
+    <meta property="article:tag" content="Pytorch">
+    <meta property="article:tag" content="Cuda">
+    <meta property="article:tag" content="编译">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1556/">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1429/">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1647/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录一次编译pytorch 的cuda插件的踩坑过程">
+<meta name="twitter:description" content="今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+
+
+[1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89
+
+FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o
+
+/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers
+
+  typedef float _Float32;
+
+                ^
+
+  
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers
+
+  typedef double _Float64;
+
+
+事实上只要清理干净使用的gcc和g&#43;&#43;版本">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://119.91.218.8/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "记录一次编译pytorch 的cuda插件的踩坑过程",
+      "item": "http://119.91.218.8/zh/posts/1609/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "记录一次编译pytorch 的cuda插件的踩坑过程",
+  "name": "记录一次编译pytorch 的cuda插件的踩坑过程",
+  "description": "今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 [1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options \u0026#39;\u0026#39;\u0026#34;\u0026#39;\u0026#34;\u0026#39;-fPIC\u0026#39;\u0026#34;\u0026#39;\u0026#34;\u0026#39;\u0026#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c++20 -DTORCH_API_INCLUDE_EXTENSION_H \u0026#39;-DPYBIND11_COMPILER_TYPE=\u0026#34;_gcc\u0026#34;\u0026#39; \u0026#39;-DPYBIND11_STDLIB=\u0026#34;_libstdcpp\u0026#34;\u0026#39; \u0026#39;-DPYBIND11_BUILD_ABI=\u0026#34;_cxxabi1011\u0026#34;\u0026#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options \u0026#39;\u0026#39;\u0026#34;\u0026#39;\u0026#34;\u0026#39;-fPIC\u0026#39;\u0026#34;\u0026#39;\u0026#34;\u0026#39;\u0026#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c++20 -DTORCH_API_INCLUDE_EXTENSION_H \u0026#39;-DPYBIND11_COMPILER_TYPE=\u0026#34;_gcc\u0026#34;\u0026#39; \u0026#39;-DPYBIND11_STDLIB=\u0026#34;_libstdcpp\u0026#34;\u0026#39; \u0026#39;-DPYBIND11_BUILD_ABI=\u0026#34;_cxxabi1011\u0026#34;\u0026#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g++版本\n",
+  "keywords": [
+    "关键字1", "关键字2"
+  ],
+  "articleBody": "今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 [1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''\"'\"'-fPIC'\"'\"'' -O2 -g -Xcompiler -rdynamic -lineinfo -std=c++20 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE=\"_gcc\"' '-DPYBIND11_STDLIB=\"_libstdcpp\"' '-DPYBIND11_BUILD_ABI=\"_cxxabi1011\"' -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''\"'\"'-fPIC'\"'\"'' -O2 -g -Xcompiler -rdynamic -lineinfo -std=c++20 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE=\"_gcc\"' '-DPYBIND11_STDLIB=\"_libstdcpp\"' '-DPYBIND11_BUILD_ABI=\"_cxxabi1011\"' -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g++版本\n1 2 3 4 5 6 7 8 9 10 11 12 ls /usr/bin/gcc* ls /usr/bin/g++* sudo apt remove gcc-10 gcc-13 g++-10 g++-13 # 通常ubuntu20.04使用9.4版本的gcc和g++ # 手动创建这些链接 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 60 # 设置对应版本 sudo update-alternatives --config gcc sudo update-alternatives --config g++ ",
+  "wordCount" : "265",
+  "inLanguage": "zh",
+  "datePublished": "2024-12-11T04:09:30Z",
+  "dateModified": "2024-12-11T04:09:30Z",
+  "author":{
+    "@type": "Person",
+    "name": "heqi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://119.91.218.8/zh/posts/1609/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "qqq的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://119.91.218.8/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://119.91.218.8/zh/" accesskey="h" title="qqq的博客 (Alt + H)">qqq的博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://119.91.218.8/zh/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/archives" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      记录一次编译pytorch 的cuda插件的踩坑过程
+    </h1>
+    <div class="post-meta"><span title='2024-12-11 04:09:30 +0000 UTC'>十二月 11, 2024</span>&nbsp;·&nbsp;heqi
+
+</div>
+  </header> 
+  <div class="post-content"><p>今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>1/3<span class="o">]</span> /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options <span class="s1">&#39;&#39;</span><span class="s2">&#34;&#39;&#34;</span><span class="s1">&#39;-fPIC&#39;</span><span class="s2">&#34;&#39;&#34;</span><span class="s1">&#39;&#39;</span> -O2 -g -Xcompiler -rdynamic -lineinfo -std<span class="o">=</span>c++20 -DTORCH_API_INCLUDE_EXTENSION_H <span class="s1">&#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39;</span> <span class="s1">&#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39;</span> <span class="s1">&#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39;</span> -DTORCH_EXTENSION_NAME<span class="o">=</span>quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI<span class="o">=</span><span class="m">0</span> -gencode<span class="o">=</span><span class="nv">arch</span><span class="o">=</span>compute_89,code<span class="o">=</span>compute_89 -gencode<span class="o">=</span><span class="nv">arch</span><span class="o">=</span>compute_89,code<span class="o">=</span>sm_89
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options <span class="s1">&#39;&#39;</span><span class="s2">&#34;&#39;&#34;</span><span class="s1">&#39;-fPIC&#39;</span><span class="s2">&#34;&#39;&#34;</span><span class="s1">&#39;&#39;</span> -O2 -g -Xcompiler -rdynamic -lineinfo -std<span class="o">=</span>c++20 -DTORCH_API_INCLUDE_EXTENSION_H <span class="s1">&#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39;</span> <span class="s1">&#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39;</span> <span class="s1">&#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39;</span> -DTORCH_EXTENSION_NAME<span class="o">=</span>quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI<span class="o">=</span><span class="m">0</span> -gencode<span class="o">=</span><span class="nv">arch</span><span class="o">=</span>compute_89,code<span class="o">=</span>compute_89 -gencode<span class="o">=</span><span class="nv">arch</span><span class="o">=</span>compute_89,code<span class="o">=</span>sm_89
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/usr/include/x86_64-linux-gnu/bits/floatn-common.h<span class="o">(</span>214<span class="o">)</span>: error: invalid combination of <span class="nb">type</span> specifiers
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  typedef float _Float32<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                ^
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/usr/include/x86_64-linux-gnu/bits/floatn-common.h<span class="o">(</span>251<span class="o">)</span>: error: invalid combination of <span class="nb">type</span> specifiers
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  typedef double _Float64<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>事实上只要清理干净使用的gcc和g++版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /usr/bin/gcc*
+</span></span><span class="line"><span class="cl">ls /usr/bin/g++*
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo apt remove gcc-10 gcc-13 g++-10 g++-13
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 通常ubuntu20.04使用9.4版本的gcc和g++</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 手动创建这些链接</span>
+</span></span><span class="line"><span class="cl">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">60</span>
+</span></span><span class="line"><span class="cl">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 <span class="m">60</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置对应版本</span>
+</span></span><span class="line"><span class="cl">sudo update-alternatives --config gcc
+</span></span><span class="line"><span class="cl">sudo update-alternatives --config g++
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://119.91.218.8/zh/tags/pytorch/">Pytorch</a></li>
+      <li><a href="http://119.91.218.8/zh/tags/cuda/">Cuda</a></li>
+      <li><a href="http://119.91.218.8/zh/tags/%E7%BC%96%E8%AF%91/">编译</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://119.91.218.8/zh/">qqq的博客</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

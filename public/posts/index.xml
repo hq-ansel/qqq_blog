@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>https://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on qqq的博客</title>
+    <link>http://119.91.218.8/posts/</link>
+    <description>Recent content in Posts on qqq的博客</description>
     <generator>Hugo -- 0.139.3</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
-    <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://119.91.218.8/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>电源故障查询指令</title>
+      <link>http://119.91.218.8/posts/1556/</link>
+      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1556/</guid>
+      <description>&lt;p&gt;&lt;code&gt;ipmitool sdr elist&lt;/code&gt; 命令用于显示系统传感器的状态信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 和 &lt;code&gt;SDR&lt;/code&gt; 是 &lt;code&gt;IPMI&lt;/code&gt;（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。&lt;/p&gt;
+&lt;h3 id=&#34;1-sel-system-event-log&#34;&gt;1. &lt;strong&gt;SEL (System Event Log)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 代表 &lt;strong&gt;System Event Log&lt;/strong&gt;，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。&lt;code&gt;SEL&lt;/code&gt; 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SEL：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sel list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-sdr-sensor-data-record&#34;&gt;2. &lt;strong&gt;SDR (Sensor Data Record)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;SDR&lt;/code&gt; 代表 &lt;strong&gt;Sensor Data Record&lt;/strong&gt;，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。&lt;code&gt;SDR&lt;/code&gt; 是 IPMI 系统中用于监控和管理硬件状态的核心部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SDR：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sdr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SEL&lt;/strong&gt; 用于记录和查看系统事件，帮助诊断和排除故障。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SDR&lt;/strong&gt; 用于存储和管理传感器数据，实时监控系统的各项参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。&lt;/p&gt;
+&lt;p&gt;输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PS1 Status&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记录一次编译pytorch 的cuda插件的踩坑过程</title>
+      <link>http://119.91.218.8/posts/1609/</link>
+      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1609/</guid>
+      <description>&lt;p&gt;今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1/3&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-fPIC&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; -O2 -g -Xcompiler -rdynamic -lineinfo -std&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++20 -DTORCH_API_INCLUDE_EXTENSION_H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_COMPILER_TYPE=&amp;#34;_gcc&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_STDLIB=&amp;#34;_libstdcpp&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_BUILD_ABI=&amp;#34;_cxxabi1011&amp;#34;&amp;#39;&lt;/span&gt; -DTORCH_EXTENSION_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89 -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;sm_89
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-fPIC&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; -O2 -g -Xcompiler -rdynamic -lineinfo -std&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++20 -DTORCH_API_INCLUDE_EXTENSION_H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_COMPILER_TYPE=&amp;#34;_gcc&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_STDLIB=&amp;#34;_libstdcpp&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_BUILD_ABI=&amp;#34;_cxxabi1011&amp;#34;&amp;#39;&lt;/span&gt; -DTORCH_EXTENSION_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89 -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;sm_89
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/include/x86_64-linux-gnu/bits/floatn-common.h&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;214&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: error: invalid combination of type specifiers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  typedef float _Float32;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/include/x86_64-linux-gnu/bits/floatn-common.h&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;251&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: error: invalid combination of type specifiers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  typedef double _Float64;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;事实上只要清理干净使用的gcc和g++版本&lt;/p&gt;</description>
+    </item>
     <item>
       <title>常用git操作</title>
-      <link>https://example.org/posts/1429/</link>
-      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>https://example.org/posts/1429/</guid>
+      <link>http://119.91.218.8/posts/1429/</link>
+      <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1429/</guid>
       <description>&lt;h3 id=&#34;丢弃更改&#34;&gt;丢弃更改&lt;/h3&gt;
 &lt;h4 id=&#34;1-丢弃工作区的未暂存更改&#34;&gt;1. &lt;strong&gt;丢弃工作区的未暂存更改&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;如果你在工作区修改了文件但尚未暂存（使用 &lt;code&gt;git add&lt;/code&gt;），可以使用以下命令将文件恢复到上一次提交时的状态：&lt;/p&gt;
@@ -51,61 +108,38 @@
 &lt;p&gt;使用这些命令时需要谨慎，特别是 &lt;code&gt;git reset --hard&lt;/code&gt;，因为这会丢失所有未提交的更改，无法恢复。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>电源故障查询指令</title>
-      <link>https://example.org/posts/1556/</link>
-      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>https://example.org/posts/1556/</guid>
-      <description>&lt;p&gt;&lt;code&gt;ipmitool sdr elist&lt;/code&gt; 命令用于显示系统传感器的状态信息。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 和 &lt;code&gt;SDR&lt;/code&gt; 是 &lt;code&gt;IPMI&lt;/code&gt;（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。&lt;/p&gt;
-&lt;h3 id=&#34;1-sel-system-event-log&#34;&gt;1. &lt;strong&gt;SEL (System Event Log)&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 代表 &lt;strong&gt;System Event Log&lt;/strong&gt;，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。&lt;code&gt;SEL&lt;/code&gt; 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SEL：
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sel list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;2-sdr-sensor-data-record&#34;&gt;2. &lt;strong&gt;SDR (Sensor Data Record)&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;SDR&lt;/code&gt; 代表 &lt;strong&gt;Sensor Data Record&lt;/strong&gt;，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。&lt;code&gt;SDR&lt;/code&gt; 是 IPMI 系统中用于监控和管理硬件状态的核心部分。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SDR：
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sdr
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;总结&#34;&gt;总结：&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;SEL&lt;/strong&gt; 用于记录和查看系统事件，帮助诊断和排除故障。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SDR&lt;/strong&gt; 用于存储和管理传感器数据，实时监控系统的各项参数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。&lt;/p&gt;
-&lt;p&gt;输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：&lt;/p&gt;
-&lt;ul&gt;
+      <title>FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
+      <link>http://119.91.218.8/posts/1647/</link>
+      <pubDate>Sun, 11 Aug 2024 16:12:08 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1647/</guid>
+      <description>&lt;h2 id=&#34;2-背景&#34;&gt;2 背景&lt;/h2&gt;
+&lt;p&gt;我们提供了一些关于现代硬件（GPU）上常见深度学习操作性能特性的背景信息，并描述了注意力机制的标准实现。&lt;/p&gt;
+&lt;h3 id=&#34;21-硬件性能&#34;&gt;2.1 硬件性能&lt;/h3&gt;
+&lt;p&gt;我们主要关注GPU。其他硬件加速器的性能类似。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GPU内存层次结构&lt;/strong&gt;&lt;br&gt;
+GPU的内存层次结构（图1左侧）包含多种不同大小和速度的内存，其中较小的内存速度更快。例如，A100 GPU具有40-80GB的高带宽内存（HBM），其带宽为1.5-2.0TB/s，并且每个108个流处理器（streaming multiprocessors）中的每个都具有192KB的片上SRAM，带宽估计为19TB/s左右。片上SRAM的速度比HBM快一个数量级，但其大小则小了许多数量级。随着计算速度相对于内存速度的提升，操作越来越受到内存（HBM）访问的瓶颈影响。因此，利用快速的SRAM变得更加重要。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;执行模型&lt;/strong&gt;&lt;br&gt;
+GPU拥有大量线程来执行一个操作（称为kernel）。每个kernel从HBM加载输入到寄存器和SRAM中，进行计算，然后将输出写入HBM。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;性能特性&lt;/strong&gt;&lt;br&gt;
+根据计算和内存访问的平衡，操作可以分为计算受限或内存受限。这通常通过算术强度来衡量，算术强度是每字节内存访问的算术操作数量。&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;PS1 Status&lt;/strong&gt;:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>记录一次编译pytorch 的cuda插件的踩坑过程</title>
-      <link>https://example.org/posts/1609/</link>
-      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>https://example.org/posts/1609/</guid>
-      <description>&lt;p&gt;今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1/3&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-fPIC&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; -O2 -g -Xcompiler -rdynamic -lineinfo -std&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++20 -DTORCH_API_INCLUDE_EXTENSION_H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_COMPILER_TYPE=&amp;#34;_gcc&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_STDLIB=&amp;#34;_libstdcpp&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_BUILD_ABI=&amp;#34;_cxxabi1011&amp;#34;&amp;#39;&lt;/span&gt; -DTORCH_EXTENSION_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89 -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;sm_89
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-fPIC&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; -O2 -g -Xcompiler -rdynamic -lineinfo -std&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++20 -DTORCH_API_INCLUDE_EXTENSION_H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_COMPILER_TYPE=&amp;#34;_gcc&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_STDLIB=&amp;#34;_libstdcpp&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-DPYBIND11_BUILD_ABI=&amp;#34;_cxxabi1011&amp;#34;&amp;#39;&lt;/span&gt; -DTORCH_EXTENSION_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89 -gencode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;compute_89,code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;sm_89
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/include/x86_64-linux-gnu/bits/floatn-common.h&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;214&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: error: invalid combination of type specifiers
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  typedef float _Float32;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ^
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/include/x86_64-linux-gnu/bits/floatn-common.h&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;251&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: error: invalid combination of type specifiers
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  typedef double _Float64;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;事实上只要清理干净使用的gcc和g++版本&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;计算受限&lt;/strong&gt;：操作的时间取决于算术操作的数量，而访问HBM的时间则要少得多。典型的例子包括具有大内维度的矩阵乘法和具有大量通道的卷积。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;内存受限&lt;/strong&gt;：操作的时间取决于内存访问的数量，而计算所花费的时间则要少得多。例子包括大多数其他操作：元素级操作（例如，激活、dropout），以及归约操作（例如，求和、softmax、批量归一化、层归一化）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;内核融合&lt;/strong&gt;&lt;br&gt;
+加速内存受限操作的最常见方法是内核融合：如果有多个操作应用于相同的输入，则输入可以从HBM中加载一次，而不是为每个操作多次加载。编译器可以自动融合许多元素级操作。然而，在模型训练的背景下，中间值仍需要写入HBM以供反向传播使用，从而降低了简单内核融合的效果。&lt;/p&gt;
+&lt;h3 id=&#34;22-标准注意力机制实现&#34;&gt;2.2 标准注意力机制实现&lt;/h3&gt;
+&lt;p&gt;给定输入序列 $Q, K, V ∈ R^{N\times d}$，其中 𝑁 是序列长度，𝑑 是头部维度，我们需要计算注意力输出$O ∈ R^{N\times d}$:
+$$
+S =QK^T\in R^{N\times N},\quad P=softmax(S)\in R^{N\times N},\quad O=PV\in R^{N\times N}
+$$
+其中 softmax 是按行应用【applied row-wise】的。&lt;/p&gt;
+&lt;p&gt;标准的注意力机制实现将矩阵 S 和 P 物化【materialize】到高带宽内存（HBM），这需要 𝑂(𝑁²) 的内存。通常 𝑁 远大于 𝑑（例如，对于 GPT-2，𝑁 = 1024 而 𝑑 = 64）。我们在算法0中描述了标准注意力机制的实现。由于部分或大多数操作都是内存受限的（例如 softmax），大量的内存访问会导致较慢的实际运行时间。&lt;/p&gt;
+&lt;p&gt;这个问题因应用于注意力矩阵的其他元素级操作而加剧，例如应用于 S 的掩码操作或应用于 P 的 dropout。因此，已有许多尝试将几个元素级操作融合在一起，例如将掩码与 softmax 融合。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

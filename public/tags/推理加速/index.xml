@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>推理加速 on qqq的博客</title>
+    <link>http://119.91.218.8/tags/%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F/</link>
+    <description>Recent content in 推理加速 on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Aug 2024 16:12:08 +0000</lastBuildDate>
+    <atom:link href="http://119.91.218.8/tags/%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
+      <link>http://119.91.218.8/posts/1647/</link>
+      <pubDate>Sun, 11 Aug 2024 16:12:08 +0000</pubDate>
+      <guid>http://119.91.218.8/posts/1647/</guid>
+      <description>&lt;h2 id=&#34;2-背景&#34;&gt;2 背景&lt;/h2&gt;
+&lt;p&gt;我们提供了一些关于现代硬件（GPU）上常见深度学习操作性能特性的背景信息，并描述了注意力机制的标准实现。&lt;/p&gt;
+&lt;h3 id=&#34;21-硬件性能&#34;&gt;2.1 硬件性能&lt;/h3&gt;
+&lt;p&gt;我们主要关注GPU。其他硬件加速器的性能类似。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GPU内存层次结构&lt;/strong&gt;&lt;br&gt;
+GPU的内存层次结构（图1左侧）包含多种不同大小和速度的内存，其中较小的内存速度更快。例如，A100 GPU具有40-80GB的高带宽内存（HBM），其带宽为1.5-2.0TB/s，并且每个108个流处理器（streaming multiprocessors）中的每个都具有192KB的片上SRAM，带宽估计为19TB/s左右。片上SRAM的速度比HBM快一个数量级，但其大小则小了许多数量级。随着计算速度相对于内存速度的提升，操作越来越受到内存（HBM）访问的瓶颈影响。因此，利用快速的SRAM变得更加重要。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;执行模型&lt;/strong&gt;&lt;br&gt;
+GPU拥有大量线程来执行一个操作（称为kernel）。每个kernel从HBM加载输入到寄存器和SRAM中，进行计算，然后将输出写入HBM。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;性能特性&lt;/strong&gt;&lt;br&gt;
+根据计算和内存访问的平衡，操作可以分为计算受限或内存受限。这通常通过算术强度来衡量，算术强度是每字节内存访问的算术操作数量。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算受限&lt;/strong&gt;：操作的时间取决于算术操作的数量，而访问HBM的时间则要少得多。典型的例子包括具有大内维度的矩阵乘法和具有大量通道的卷积。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;内存受限&lt;/strong&gt;：操作的时间取决于内存访问的数量，而计算所花费的时间则要少得多。例子包括大多数其他操作：元素级操作（例如，激活、dropout），以及归约操作（例如，求和、softmax、批量归一化、层归一化）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;内核融合&lt;/strong&gt;&lt;br&gt;
+加速内存受限操作的最常见方法是内核融合：如果有多个操作应用于相同的输入，则输入可以从HBM中加载一次，而不是为每个操作多次加载。编译器可以自动融合许多元素级操作。然而，在模型训练的背景下，中间值仍需要写入HBM以供反向传播使用，从而降低了简单内核融合的效果。&lt;/p&gt;
+&lt;h3 id=&#34;22-标准注意力机制实现&#34;&gt;2.2 标准注意力机制实现&lt;/h3&gt;
+&lt;p&gt;给定输入序列 $Q, K, V ∈ R^{N\times d}$，其中 𝑁 是序列长度，𝑑 是头部维度，我们需要计算注意力输出$O ∈ R^{N\times d}$:
+$$
+S =QK^T\in R^{N\times N},\quad P=softmax(S)\in R^{N\times N},\quad O=PV\in R^{N\times N}
+$$
+其中 softmax 是按行应用【applied row-wise】的。&lt;/p&gt;
+&lt;p&gt;标准的注意力机制实现将矩阵 S 和 P 物化【materialize】到高带宽内存（HBM），这需要 𝑂(𝑁²) 的内存。通常 𝑁 远大于 𝑑（例如，对于 GPT-2，𝑁 = 1024 而 𝑑 = 64）。我们在算法0中描述了标准注意力机制的实现。由于部分或大多数操作都是内存受限的（例如 softmax），大量的内存访问会导致较慢的实际运行时间。&lt;/p&gt;
+&lt;p&gt;这个问题因应用于注意力矩阵的其他元素级操作而加剧，例如应用于 S 的掩码操作或应用于 P 的 dropout。因此，已有许多尝试将几个元素级操作融合在一起，例如将掩码与 softmax 融合。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

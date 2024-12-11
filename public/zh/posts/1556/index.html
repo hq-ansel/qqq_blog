@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>电源故障查询指令 | qqq的博客</title>
+<meta name="keywords" content="IDC, 服务器运维">
+<meta name="description" content="ipmitool sdr elist 命令用于显示系统传感器的状态信息。
+SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。">
+<meta name="author" content="heqi">
+<link rel="canonical" href="http://119.91.218.8/zh/posts/1556/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://119.91.218.8/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://119.91.218.8/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://119.91.218.8/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://119.91.218.8/apple-touch-icon.png">
+<link rel="mask-icon" href="http://119.91.218.8/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://119.91.218.8/zh/posts/1556/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1556/">
+  <meta property="og:site_name" content="qqq的博客">
+  <meta property="og:title" content="电源故障查询指令">
+  <meta property="og:description" content="ipmitool sdr elist 命令用于显示系统传感器的状态信息。
+SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-11T04:09:30+00:00">
+    <meta property="article:modified_time" content="2024-12-11T04:09:30+00:00">
+    <meta property="article:tag" content="IDC">
+    <meta property="article:tag" content="服务器运维">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1609/">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1429/">
+      <meta property="og:see_also" content="http://119.91.218.8/zh/posts/1647/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电源故障查询指令">
+<meta name="twitter:description" content="ipmitool sdr elist 命令用于显示系统传感器的状态信息。
+SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://119.91.218.8/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "电源故障查询指令",
+      "item": "http://119.91.218.8/zh/posts/1556/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "电源故障查询指令",
+  "name": "电源故障查询指令",
+  "description": "ipmitool sdr elist 命令用于显示系统传感器的状态信息。\nSEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。\n",
+  "keywords": [
+    "IDC", "服务器运维"
+  ],
+  "articleBody": "ipmitool sdr elist 命令用于显示系统传感器的状态信息。\nSEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。\n1. SEL (System Event Log) SEL 代表 System Event Log，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。SEL 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。\n命令示例: 使用 ipmitool 查看 SEL： 1 sudo ipmitool sel list 这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。 2. SDR (Sensor Data Record) SDR 代表 Sensor Data Record，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。SDR 是 IPMI 系统中用于监控和管理硬件状态的核心部分。\n命令示例: 使用 ipmitool 查看 SDR： 1 sudo ipmitool sdr 这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。 总结： SEL 用于记录和查看系统事件，帮助诊断和排除故障。 SDR 用于存储和管理传感器数据，实时监控系统的各项参数。 了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。\n输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：\nPS1 Status:\nC4h: 传感器ID，具体的数值因硬件而异。 ok: 状态正常。 10.92: 电压或类似的数值，这里通常表示与电源相关的数值。 Presence detected: 表示电源模块被检测到存在。 PS2 Status:\nC5h: 传感器ID。 ok: 状态正常。 10.91: 电压或类似的数值。 Presence detected, Failure detected: 表示电源模块被检测到存在，但也检测到故障。 PS3 Status:\nC6h: 传感器ID。 ok: 状态正常。 10.90: 电压或类似的数值。 Presence detected: 表示电源模块被检测到存在。 PS4 Status:\nC7h: 传感器ID。 ok: 状态正常。 10.89: 电压或类似的数值。 Presence detected: 表示电源模块被检测到存在。 关键点： Presence detected: 电源模块被检测到。 Failure detected: 仅在 PS2 中出现，表明这个电源模块存在某种故障。虽然状态显示为 ok，但这可能是因为故障并不影响系统的整体运行，但仍然值得进一步检查。 你可能需要检查 PS2 的具体状态，可能需要通过 ipmitool 获取更多详细信息或查看相关日志，确保电源模块在未来不会引发更严重的问题。\n",
+  "wordCount" : "884",
+  "inLanguage": "zh",
+  "datePublished": "2024-12-11T04:09:30Z",
+  "dateModified": "2024-12-11T04:09:30Z",
+  "author":{
+    "@type": "Person",
+    "name": "heqi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://119.91.218.8/zh/posts/1556/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "qqq的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://119.91.218.8/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://119.91.218.8/zh/" accesskey="h" title="qqq的博客 (Alt + H)">qqq的博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://119.91.218.8/zh/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/archives" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://119.91.218.8/zh/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      电源故障查询指令
+    </h1>
+    <div class="post-meta"><span title='2024-12-11 04:09:30 +0000 UTC'>十二月 11, 2024</span>&nbsp;·&nbsp;heqi
+
+</div>
+  </header> 
+  <div class="post-content"><p><code>ipmitool sdr elist</code> 命令用于显示系统传感器的状态信息。</p>
+<p><code>SEL</code> 和 <code>SDR</code> 是 <code>IPMI</code>（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。</p>
+<h3 id="1-sel-system-event-log">1. <strong>SEL (System Event Log)</strong><a hidden class="anchor" aria-hidden="true" href="#1-sel-system-event-log">#</a></h3>
+<p><code>SEL</code> 代表 <strong>System Event Log</strong>，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。<code>SEL</code> 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。</p>
+<ul>
+<li><strong>命令示例</strong>: 使用 <code>ipmitool</code> 查看 SEL：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ipmitool sel list
+</span></span></code></pre></td></tr></table>
+</div>
+</div>这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。</li>
+</ul>
+<h3 id="2-sdr-sensor-data-record">2. <strong>SDR (Sensor Data Record)</strong><a hidden class="anchor" aria-hidden="true" href="#2-sdr-sensor-data-record">#</a></h3>
+<p><code>SDR</code> 代表 <strong>Sensor Data Record</strong>，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。<code>SDR</code> 是 IPMI 系统中用于监控和管理硬件状态的核心部分。</p>
+<ul>
+<li><strong>命令示例</strong>: 使用 <code>ipmitool</code> 查看 SDR：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ipmitool sdr
+</span></span></code></pre></td></tr></table>
+</div>
+</div>这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。</li>
+</ul>
+<h3 id="总结">总结：<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h3>
+<ul>
+<li><strong>SEL</strong> 用于记录和查看系统事件，帮助诊断和排除故障。</li>
+<li><strong>SDR</strong> 用于存储和管理传感器数据，实时监控系统的各项参数。</li>
+</ul>
+<p>了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。</p>
+<p>输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：</p>
+<ul>
+<li>
+<p><strong>PS1 Status</strong>:</p>
+<ul>
+<li><code>C4h</code>: 传感器ID，具体的数值因硬件而异。</li>
+<li><code>ok</code>: 状态正常。</li>
+<li><code>10.92</code>: 电压或类似的数值，这里通常表示与电源相关的数值。</li>
+<li><code>Presence detected</code>: 表示电源模块被检测到存在。</li>
+</ul>
+</li>
+<li>
+<p><strong>PS2 Status</strong>:</p>
+<ul>
+<li><code>C5h</code>: 传感器ID。</li>
+<li><code>ok</code>: 状态正常。</li>
+<li><code>10.91</code>: 电压或类似的数值。</li>
+<li><code>Presence detected, Failure detected</code>: 表示电源模块被检测到存在，但也检测到故障。</li>
+</ul>
+</li>
+<li>
+<p><strong>PS3 Status</strong>:</p>
+<ul>
+<li><code>C6h</code>: 传感器ID。</li>
+<li><code>ok</code>: 状态正常。</li>
+<li><code>10.90</code>: 电压或类似的数值。</li>
+<li><code>Presence detected</code>: 表示电源模块被检测到存在。</li>
+</ul>
+</li>
+<li>
+<p><strong>PS4 Status</strong>:</p>
+<ul>
+<li><code>C7h</code>: 传感器ID。</li>
+<li><code>ok</code>: 状态正常。</li>
+<li><code>10.89</code>: 电压或类似的数值。</li>
+<li><code>Presence detected</code>: 表示电源模块被检测到存在。</li>
+</ul>
+</li>
+</ul>
+<h3 id="关键点">关键点：<a hidden class="anchor" aria-hidden="true" href="#关键点">#</a></h3>
+<ul>
+<li><strong>Presence detected</strong>: 电源模块被检测到。</li>
+<li><strong>Failure detected</strong>: 仅在 PS2 中出现，表明这个电源模块存在某种故障。虽然状态显示为 <code>ok</code>，但这可能是因为故障并不影响系统的整体运行，但仍然值得进一步检查。</li>
+</ul>
+<p>你可能需要检查 PS2 的具体状态，可能需要通过 <code>ipmitool</code> 获取更多详细信息或查看相关日志，确保电源模块在未来不会引发更严重的问题。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://119.91.218.8/zh/tags/idc/">IDC</a></li>
+      <li><a href="http://119.91.218.8/zh/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/">服务器运维</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://119.91.218.8/zh/">qqq的博客</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

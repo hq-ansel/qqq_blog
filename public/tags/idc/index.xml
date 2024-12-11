@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IDC on My New Hugo Site</title>
+    <link>https://example.org/tags/idc/</link>
+    <description>Recent content in IDC on My New Hugo Site</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
+    <atom:link href="https://example.org/tags/idc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>电源故障查询指令</title>
+      <link>https://example.org/posts/1556/</link>
+      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>https://example.org/posts/1556/</guid>
+      <description>&lt;p&gt;&lt;code&gt;ipmitool sdr elist&lt;/code&gt; 命令用于显示系统传感器的状态信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 和 &lt;code&gt;SDR&lt;/code&gt; 是 &lt;code&gt;IPMI&lt;/code&gt;（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。&lt;/p&gt;
+&lt;h3 id=&#34;1-sel-system-event-log&#34;&gt;1. &lt;strong&gt;SEL (System Event Log)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 代表 &lt;strong&gt;System Event Log&lt;/strong&gt;，即系统事件日志。它是一个记录了系统中关键事件的日志文件，通常包括硬件故障、警告、系统启动和关闭事件等。&lt;code&gt;SEL&lt;/code&gt; 通常用于诊断和排除硬件问题。事件日志会记录事件的时间戳、事件类型、严重程度以及相关的详细信息。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SEL：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sel list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出所有记录的系统事件，帮助管理员分析系统中的异常情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-sdr-sensor-data-record&#34;&gt;2. &lt;strong&gt;SDR (Sensor Data Record)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;SDR&lt;/code&gt; 代表 &lt;strong&gt;Sensor Data Record&lt;/strong&gt;，即传感器数据记录。它是一个存储在系统中的数据库，包含了系统内所有传感器的详细信息，包括传感器的类型、名称、ID、状态、当前值、报警阈值等。&lt;code&gt;SDR&lt;/code&gt; 是 IPMI 系统中用于监控和管理硬件状态的核心部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命令示例&lt;/strong&gt;: 使用 &lt;code&gt;ipmitool&lt;/code&gt; 查看 SDR：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ipmitool sdr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;这个命令会列出系统中所有传感器的状态和读数，允许管理员监控系统的健康状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SEL&lt;/strong&gt; 用于记录和查看系统事件，帮助诊断和排除故障。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SDR&lt;/strong&gt; 用于存储和管理传感器数据，实时监控系统的各项参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;了解 SEL 和 SDR 是 IPMI 管理的重要部分，能够帮助你更好地维护和管理服务器的硬件状态。&lt;/p&gt;
+&lt;p&gt;输出的每一行代表一个电源模块（PS1、PS2、PS3、PS4）的状态。以下是输出信息的含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PS1 Status&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

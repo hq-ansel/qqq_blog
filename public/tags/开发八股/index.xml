@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>开发八股 on My New Hugo Site</title>
+    <link>https://example.org/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
+    <description>Recent content in 开发八股 on My New Hugo Site</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
+    <atom:link href="https://example.org/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>常用git操作</title>
+      <link>https://example.org/posts/1429/</link>
+      <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
+      <guid>https://example.org/posts/1429/</guid>
+      <description>&lt;h3 id=&#34;丢弃更改&#34;&gt;丢弃更改&lt;/h3&gt;
+&lt;h4 id=&#34;1-丢弃工作区的未暂存更改&#34;&gt;1. &lt;strong&gt;丢弃工作区的未暂存更改&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你在工作区修改了文件但尚未暂存（使用 &lt;code&gt;git add&lt;/code&gt;），可以使用以下命令将文件恢复到上一次提交时的状态：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout -- &amp;lt;file&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会丢弃指定文件的更改，恢复到上次提交的版本。&lt;/p&gt;
+&lt;p&gt;如果想丢弃所有文件的更改，可以使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout -- .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2-丢弃已暂存的更改&#34;&gt;2. &lt;strong&gt;丢弃已暂存的更改&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你已经使用 &lt;code&gt;git add&lt;/code&gt; 将更改暂存，但还没有提交，可以使用以下命令将更改从暂存区移除，但保留在工作区中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git reset HEAD &amp;lt;file&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样做会将文件从暂存区移除，但工作区中的更改仍然存在。&lt;/p&gt;
+&lt;p&gt;如果想将所有已暂存的文件移除暂存区，可以使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git reset HEAD .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;3-丢弃所有未提交的更改包括工作区和暂存区&#34;&gt;3. &lt;strong&gt;丢弃所有未提交的更改（包括工作区和暂存区）&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你想要彻底丢弃所有未提交的更改（包括工作区和暂存区的更改），可以使用以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git reset --hard
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会将你的工作区和暂存区重置到上一次提交的状态，所有未提交的更改都会丢失。&lt;/p&gt;
+&lt;h4 id=&#34;4-丢弃已经提交的更改&#34;&gt;4. &lt;strong&gt;丢弃已经提交的更改&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你已经提交了更改，但想要撤销提交，可以使用以下命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;回滚到之前的提交但保留更改在工作区：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git reset --soft &amp;lt;commit-hash&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这将把当前分支重置到指定的提交，但保留更改在暂存区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;彻底丢弃提交后的更改：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git reset --hard &amp;lt;commit-hash&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会将当前分支重置到指定的提交，工作区和暂存区的更改都会被丢弃。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;5-丢弃特定提交的更改&#34;&gt;5. &lt;strong&gt;丢弃特定提交的更改&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你想撤销某个特定的提交，可以使用 &lt;code&gt;git revert&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git revert &amp;lt;commit-hash&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会生成一个新的提交来撤销指定的更改，而不会影响其他历史提交。&lt;/p&gt;
+&lt;p&gt;使用这些命令时需要谨慎，特别是 &lt;code&gt;git reset --hard&lt;/code&gt;，因为这会丢失所有未提交的更改，无法恢复。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

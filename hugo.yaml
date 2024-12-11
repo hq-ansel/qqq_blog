@@ -81,7 +81,7 @@ outputs:
         - RSS
         - JSON
 
-
+params:
     defaultTheme: auto  # defaultTheme: light or  dark
     disableThemeToggle: false
     DateFormat: "2024-09-02"

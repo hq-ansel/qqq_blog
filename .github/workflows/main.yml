@@ -21,6 +21,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /path/to/your/repo
+          cd /home/ubuntu/qqq_blog
           git pull
           hugo

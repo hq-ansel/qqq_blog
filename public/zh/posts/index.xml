@@ -6,8 +6,111 @@
     <description>Recent content in Posts on qqq的博客</description>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2024 14:12:57 +0800</lastBuildDate>
     <atom:link href="http://119.91.218.8/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherman-Morrison 公式</title>
+      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <description>&lt;p&gt;Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A + u v^\top$ 的逆的显式表达式。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>边际熵（Marginal Entropy</title>
+      <link>http://119.91.218.8/zh/posts/1404/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:49 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1404/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;边际熵（Marginal Entropy）&lt;/strong&gt; 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>L平滑</title>
+      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <description>&lt;p&gt;这段内容涉及&lt;strong&gt;L平滑性&lt;/strong&gt;在&lt;strong&gt;稀疏子空间&lt;/strong&gt;中的推广和应用。经典的L平滑性定义用于描述函数在不同点之间的梯度变化程度。当函数在某个子空间（如稀疏子空间）中定义时，L平滑常数往往会减少，反映出函数在较小的区域内变化的“平滑性”增大。以下是详细解释：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>低频归纳偏差假设</title>
+      <link>http://119.91.218.8/zh/posts/1405/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:21 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1405/</guid>
+      <description>&lt;p&gt;Low-frequency inductive bias（低频归纳偏差）是一种在机器学习模型中的假设或倾向，特别是在深度学习领域，模型更容易学习低频信号或特征，而不是高频信号。简单来说，模型倾向于捕捉数据中的平滑、缓慢变化的模式，而不太容易学习快速变化或具有高频率的细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>互信息与模型</title>
+      <link>http://119.91.218.8/zh/posts/1406/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:03 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1406/</guid>
+      <description>&lt;h3 id=&#34;1-互信息mutual-information&#34;&gt;1. &lt;strong&gt;互信息（Mutual Information）&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;互信息 $I(h, x)$ 和 $I(h, y)$ 是用来衡量特征 $h$ 中包含的输入 $x$ 和标签 $y$ 的信息量的。互信息可以帮助我们了解特征中保留的总体信息量以及与任务相关的信息量。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fish shell 配置</title>
+      <link>http://119.91.218.8/zh/posts/1959/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1959/</guid>
+      <description>&lt;h3 id=&#34;1-安装-fish-shell&#34;&gt;&lt;strong&gt;1. 安装 Fish Shell&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;步骤&#34;&gt;&lt;strong&gt;步骤&lt;/strong&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;更新系统：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装 Fish：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install fish -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;验证安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fish --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-设置-fish-为默认-shell&#34;&gt;&lt;strong&gt;2. 设置 Fish 为默认 Shell&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确认 Fish 的路径：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;which fish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;通常路径为 &lt;code&gt;/usr/bin/fish&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将 Fish 设置为默认 Shell：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>git的协作</title>
+      <link>http://119.91.218.8/zh/posts/1942/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:31 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1942/</guid>
+      <description>&lt;p&gt;在与他人协作开发一个功能时，使用 &lt;code&gt;git rebase&lt;/code&gt; 可以保持提交历史的清洁和线性化。以下是一个推荐的 Git 工作流程，它结合了分支管理和 &lt;code&gt;rebase&lt;/code&gt;，适合在多人协作中保持历史干净：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>电源故障查询指令</title>
       <link>http://119.91.218.8/zh/posts/1556/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on qqq的博客</title>
+    <link>http://119.91.218.8/zh/tags/git/</link>
+    <description>Recent content in Git on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 11 Dec 2024 19:12:31 +0800</lastBuildDate>
+    <atom:link href="http://119.91.218.8/zh/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git的协作</title>
+      <link>http://119.91.218.8/zh/posts/1942/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:31 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1942/</guid>
+      <description>&lt;p&gt;在与他人协作开发一个功能时，使用 &lt;code&gt;git rebase&lt;/code&gt; 可以保持提交历史的清洁和线性化。以下是一个推荐的 Git 工作流程，它结合了分支管理和 &lt;code&gt;rebase&lt;/code&gt;，适合在多人协作中保持历史干净：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>矩阵论 on qqq的博客</title>
+    <link>http://119.91.218.8/zh/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/</link>
+    <description>Recent content in 矩阵论 on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 13 Dec 2024 14:12:57 +0800</lastBuildDate>
+    <atom:link href="http://119.91.218.8/zh/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherman-Morrison 公式</title>
+      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <description>&lt;p&gt;Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A + u v^\top$ 的逆的显式表达式。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

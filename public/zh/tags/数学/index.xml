@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>数学 on qqq的博客</title>
+    <link>http://119.91.218.8/zh/tags/%E6%95%B0%E5%AD%A6/</link>
+    <description>Recent content in 数学 on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 13 Dec 2024 14:12:57 +0800</lastBuildDate>
+    <atom:link href="http://119.91.218.8/zh/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherman-Morrison 公式</title>
+      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <description>&lt;p&gt;Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A + u v^\top$ 的逆的显式表达式。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>边际熵（Marginal Entropy</title>
+      <link>http://119.91.218.8/zh/posts/1404/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:49 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1404/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;边际熵（Marginal Entropy）&lt;/strong&gt; 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>L平滑</title>
+      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <description>&lt;p&gt;这段内容涉及&lt;strong&gt;L平滑性&lt;/strong&gt;在&lt;strong&gt;稀疏子空间&lt;/strong&gt;中的推广和应用。经典的L平滑性定义用于描述函数在不同点之间的梯度变化程度。当函数在某个子空间（如稀疏子空间）中定义时，L平滑常数往往会减少，反映出函数在较小的区域内变化的“平滑性”增大。以下是详细解释：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>低频归纳偏差假设</title>
+      <link>http://119.91.218.8/zh/posts/1405/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:21 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1405/</guid>
+      <description>&lt;p&gt;Low-frequency inductive bias（低频归纳偏差）是一种在机器学习模型中的假设或倾向，特别是在深度学习领域，模型更容易学习低频信号或特征，而不是高频信号。简单来说，模型倾向于捕捉数据中的平滑、缓慢变化的模式，而不太容易学习快速变化或具有高频率的细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>互信息与模型</title>
+      <link>http://119.91.218.8/zh/posts/1406/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:03 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/1406/</guid>
+      <description>&lt;h3 id=&#34;1-互信息mutual-information&#34;&gt;1. &lt;strong&gt;互信息（Mutual Information）&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;互信息 $I(h, x)$ 和 $I(h, y)$ 是用来衡量特征 $h$ 中包含的输入 $x$ 和标签 $y$ 的信息量的。互信息可以帮助我们了解特征中保留的总体信息量以及与任务相关的信息量。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

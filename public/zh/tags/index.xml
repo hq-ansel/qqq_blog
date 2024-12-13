@@ -6,8 +6,57 @@
     <description>Recent content in Tags on qqq的博客</description>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 11 Dec 2024 04:09:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2024 14:12:57 +0800</lastBuildDate>
     <atom:link href="http://119.91.218.8/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>机器学习</title>
+      <link>http://119.91.218.8/zh/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>矩阵论</title>
+      <link>http://119.91.218.8/zh/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数学</title>
+      <link>http://119.91.218.8/zh/tags/%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/%E6%95%B0%E5%AD%A6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://119.91.218.8/zh/tags/linux/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>http://119.91.218.8/zh/tags/shell/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>http://119.91.218.8/zh/tags/git/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:31 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>开发八股</title>
+      <link>http://119.91.218.8/zh/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
+      <pubDate>Wed, 11 Dec 2024 19:12:31 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cuda</title>
       <link>http://119.91.218.8/zh/tags/cuda/</link>
@@ -48,13 +97,6 @@
       <link>http://119.91.218.8/zh/tags/%23%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
       <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
       <guid>http://119.91.218.8/zh/tags/%23%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>开发八股</title>
-      <link>http://119.91.218.8/zh/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</link>
-      <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/tags/%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/</guid>
       <description></description>
     </item>
     <item>

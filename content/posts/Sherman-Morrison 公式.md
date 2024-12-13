@@ -17,6 +17,7 @@ cover:
   image: 
 author: heqi
 dir: posts
+math: "true"
 ---
 
 Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A + u v^\top$ 的逆的显式表达式。

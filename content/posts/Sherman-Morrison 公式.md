@@ -5,7 +5,6 @@ tags:
   - 机器学习
   - 矩阵论
 title: Sherman-Morrison 公式
-slug: 14:08
 share: true
 canonicalURL: ""
 keywords: 

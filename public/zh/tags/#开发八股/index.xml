@@ -10,9 +10,9 @@
     <atom:link href="http://119.91.218.8/zh/tags/%23%E5%BC%80%E5%8F%91%E5%85%AB%E8%82%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>常用git操作</title>
-      <link>http://119.91.218.8/zh/posts/1429/</link>
+      <link>http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1429/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/</guid>
       <description>&lt;h3 id=&#34;丢弃更改&#34;&gt;丢弃更改&lt;/h3&gt;
 &lt;h4 id=&#34;1-丢弃工作区的未暂存更改&#34;&gt;1. &lt;strong&gt;丢弃工作区的未暂存更改&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;如果你在工作区修改了文件但尚未暂存（使用 &lt;code&gt;git add&lt;/code&gt;），可以使用以下命令将文件恢复到上一次提交时的状态：&lt;/p&gt;

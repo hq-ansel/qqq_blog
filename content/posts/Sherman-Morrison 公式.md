@@ -46,10 +46,7 @@ Sherman-Morrison 公式在数值计算中非常有用，因为它允许我们在
 代入 Sherman-Morrison 公式：
 
 $$
-\begin{aligned}
-\left( I_m + \mathbf{1}_m \mathbf{1}_m^\top \right)^{-1} &= I_m^{-1} - \frac{I_m^{-1} \mathbf{1}_m \mathbf{1}_m^\top I_m^{-1}}{1 + \mathbf{1}_m^\top I_m^{-1} \mathbf{1}_m} \\
-&= I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{1 + \mathbf{1}_m^\top \mathbf{1}_m}
-\end{aligned}
+\begin{equation} \begin{aligned} \left( I_m + \mathbf{1}_m \mathbf{1}_m^\top \right)^{-1} &= I_m^{-1} - \frac{I_m^{-1} \mathbf{1}_m \mathbf{1}_m^\top I_m^{-1}}{1 + \mathbf{1}_m^\top I_m^{-1} \mathbf{1}_m} \\ &= I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{1 + \mathbf{1}_m^\top \mathbf{1}_m} \end{aligned} \end{equation}
 $$
 因为：$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
 - 最终得到：

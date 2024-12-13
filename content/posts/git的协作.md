@@ -4,7 +4,6 @@ tags:
   - git
   - 开发八股
 title: git的协作
-slug: 19:42
 share: true
 canonicalURL: ""
 keywords: []

@@ -55,7 +55,26 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1404/">
+</noscript>
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+<meta property="og:url" content="http://119.91.218.8/zh/posts/1404/">
   <meta property="og:site_name" content="qqq的博客">
   <meta property="og:title" content="边际熵（Marginal Entropy">
   <meta property="og:description" content="边际熵（Marginal Entropy） 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：">

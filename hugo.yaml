@@ -102,7 +102,6 @@ params:
     TocOpen: true # 自动展开目录
 
     comments: true
-    math: true # md 自动开启Latex渲染
 
     socialIcons:
         - name: github
@@ -166,18 +165,6 @@ markup:
     goldmark:
         renderer:
             unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
-        extensions:
-          passthrough: # 此项是将指定的分隔符以及分隔符内容直通给HTML,以便Katex等能够渲染
-            delimiters:
-              block: # 块级符号
-                - - \[
-                  - \]
-                - - $$
-                  - $$
-              inline: # 行内符号
-                - - \(
-                  - \)
-              enable: true
     highlight:
         # anchorLineNos: true
         codeFences: true

@@ -55,7 +55,26 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1408/">
+</noscript>
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+<meta property="og:url" content="http://119.91.218.8/zh/posts/1408/">
   <meta property="og:site_name" content="qqq的博客">
   <meta property="og:title" content="Sherman-Morrison 公式">
   <meta property="og:description" content="Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A &#43; u v^\top$ 的逆的显式表达式。">

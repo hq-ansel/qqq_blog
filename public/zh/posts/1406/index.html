@@ -56,7 +56,26 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1406/">
+</noscript>
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+<meta property="og:url" content="http://119.91.218.8/zh/posts/1406/">
   <meta property="og:site_name" content="qqq的博客">
   <meta property="og:title" content="互信息与模型">
   <meta property="og:description" content="1. 互信息（Mutual Information） 互信息 $I(h, x)$ 和 $I(h, y)$ 是用来衡量特征 $h$ 中包含的输入 $x$ 和标签 $y$ 的信息量的。互信息可以帮助我们了解特征中保留的总体信息量以及与任务相关的信息量。">

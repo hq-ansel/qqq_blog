@@ -55,7 +55,26 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://119.91.218.8/zh/posts/1405/">
+</noscript>
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+<meta property="og:url" content="http://119.91.218.8/zh/posts/1405/">
   <meta property="og:site_name" content="qqq的博客">
   <meta property="og:title" content="低频归纳偏差假设">
   <meta property="og:description" content="Low-frequency inductive bias（低频归纳偏差）是一种在机器学习模型中的假设或倾向，特别是在深度学习领域，模型更容易学习低频信号或特征，而不是高频信号。简单来说，模型倾向于捕捉数据中的平滑、缓慢变化的模式，而不太容易学习快速变化或具有高频率的细节。">

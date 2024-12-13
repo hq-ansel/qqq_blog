@@ -4,7 +4,6 @@ tags:
   - linux
   - shell
 title: fish shell 配置
-slug: 19:59
 share: true
 canonicalURL: ""
 keywords: 

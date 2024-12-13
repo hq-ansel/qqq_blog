@@ -18,6 +18,7 @@ cover:
   image: 
 author: heqi
 dir: posts
+math: "true"
 ---
 
 **边际熵（Marginal Entropy）** 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：

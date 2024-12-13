@@ -10,45 +10,51 @@
     <atom:link href="http://119.91.218.8/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sherman-Morrison 公式</title>
-      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <link>http://119.91.218.8/zh/posts/sherman-morrison-%E5%85%AC%E5%BC%8F/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:57 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <guid>http://119.91.218.8/zh/posts/sherman-morrison-%E5%85%AC%E5%BC%8F/</guid>
       <description>&lt;p&gt;Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A + u v^\top$ 的逆的显式表达式。&lt;/p&gt;</description>
     </item>
     <item>
       <title>边际熵（Marginal Entropy</title>
-      <link>http://119.91.218.8/zh/posts/1404/</link>
+      <link>http://119.91.218.8/zh/posts/%E8%BE%B9%E9%99%85%E7%86%B5marginal-entropy/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:49 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1404/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;边际熵（Marginal Entropy）&lt;/strong&gt; 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：&lt;/p&gt;</description>
+      <guid>http://119.91.218.8/zh/posts/%E8%BE%B9%E9%99%85%E7%86%B5marginal-entropy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;边际熵（Marginal Entropy）&lt;/strong&gt; 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：
+$$
+H(X) = - \sum_x p(x) \log p(x)
+$$或对于连续变量：
+$$
+H(X) = - \int p(x) \log p(x) , dx
+$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>L平滑</title>
-      <link>http://119.91.218.8/zh/posts/1408/</link>
+      <link>http://119.91.218.8/zh/posts/l%E5%B9%B3%E6%BB%91/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:38 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1408/</guid>
+      <guid>http://119.91.218.8/zh/posts/l%E5%B9%B3%E6%BB%91/</guid>
       <description>&lt;p&gt;这段内容涉及&lt;strong&gt;L平滑性&lt;/strong&gt;在&lt;strong&gt;稀疏子空间&lt;/strong&gt;中的推广和应用。经典的L平滑性定义用于描述函数在不同点之间的梯度变化程度。当函数在某个子空间（如稀疏子空间）中定义时，L平滑常数往往会减少，反映出函数在较小的区域内变化的“平滑性”增大。以下是详细解释：&lt;/p&gt;</description>
     </item>
     <item>
       <title>低频归纳偏差假设</title>
-      <link>http://119.91.218.8/zh/posts/1405/</link>
+      <link>http://119.91.218.8/zh/posts/%E4%BD%8E%E9%A2%91%E5%BD%92%E7%BA%B3%E5%81%8F%E5%B7%AE%E5%81%87%E8%AE%BE/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:21 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1405/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E4%BD%8E%E9%A2%91%E5%BD%92%E7%BA%B3%E5%81%8F%E5%B7%AE%E5%81%87%E8%AE%BE/</guid>
       <description>&lt;p&gt;Low-frequency inductive bias（低频归纳偏差）是一种在机器学习模型中的假设或倾向，特别是在深度学习领域，模型更容易学习低频信号或特征，而不是高频信号。简单来说，模型倾向于捕捉数据中的平滑、缓慢变化的模式，而不太容易学习快速变化或具有高频率的细节。&lt;/p&gt;</description>
     </item>
     <item>
       <title>互信息与模型</title>
-      <link>http://119.91.218.8/zh/posts/1406/</link>
+      <link>http://119.91.218.8/zh/posts/%E4%BA%92%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:03 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1406/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E4%BA%92%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%A8%A1%E5%9E%8B/</guid>
       <description>&lt;h3 id=&#34;1-互信息mutual-information&#34;&gt;1. &lt;strong&gt;互信息（Mutual Information）&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;互信息 $I(h, x)$ 和 $I(h, y)$ 是用来衡量特征 $h$ 中包含的输入 $x$ 和标签 $y$ 的信息量的。互信息可以帮助我们了解特征中保留的总体信息量以及与任务相关的信息量。&lt;/p&gt;</description>
     </item>
     <item>
       <title>fish shell 配置</title>
-      <link>http://119.91.218.8/zh/posts/1959/</link>
+      <link>http://119.91.218.8/zh/posts/fish-shell-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 11 Dec 2024 19:12:38 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1959/</guid>
+      <guid>http://119.91.218.8/zh/posts/fish-shell-%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;h3 id=&#34;1-安装-fish-shell&#34;&gt;&lt;strong&gt;1. 安装 Fish Shell&lt;/strong&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;步骤&#34;&gt;&lt;strong&gt;步骤&lt;/strong&gt;&lt;/h4&gt;
 &lt;ol&gt;
@@ -106,24 +112,24 @@
     </item>
     <item>
       <title>git的协作</title>
-      <link>http://119.91.218.8/zh/posts/1942/</link>
+      <link>http://119.91.218.8/zh/posts/git%E7%9A%84%E5%8D%8F%E4%BD%9C/</link>
       <pubDate>Wed, 11 Dec 2024 19:12:31 +0800</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1942/</guid>
+      <guid>http://119.91.218.8/zh/posts/git%E7%9A%84%E5%8D%8F%E4%BD%9C/</guid>
       <description>&lt;p&gt;在与他人协作开发一个功能时，使用 &lt;code&gt;git rebase&lt;/code&gt; 可以保持提交历史的清洁和线性化。以下是一个推荐的 Git 工作流程，它结合了分支管理和 &lt;code&gt;rebase&lt;/code&gt;，适合在多人协作中保持历史干净：&lt;/p&gt;</description>
     </item>
     <item>
       <title>电源故障查询指令</title>
-      <link>http://119.91.218.8/zh/posts/1556/</link>
+      <link>http://119.91.218.8/zh/posts/%E7%94%B5%E6%BA%90%E6%95%85%E9%9A%9C%E6%9F%A5%E8%AF%A2%E6%8C%87%E4%BB%A4/</link>
       <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1556/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E7%94%B5%E6%BA%90%E6%95%85%E9%9A%9C%E6%9F%A5%E8%AF%A2%E6%8C%87%E4%BB%A4/</guid>
       <description>&lt;p&gt;&lt;code&gt;ipmitool sdr elist&lt;/code&gt; 命令用于显示系统传感器的状态信息。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SEL&lt;/code&gt; 和 &lt;code&gt;SDR&lt;/code&gt; 是 &lt;code&gt;IPMI&lt;/code&gt;（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。&lt;/p&gt;</description>
     </item>
     <item>
       <title>记录一次编译pytorch 的cuda插件的踩坑过程</title>
-      <link>http://119.91.218.8/zh/posts/1609/</link>
+      <link>http://119.91.218.8/zh/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E7%BC%96%E8%AF%91pytorch-%E7%9A%84cuda%E6%8F%92%E4%BB%B6%E7%9A%84%E8%B8%A9%E5%9D%91%E8%BF%87%E7%A8%8B/</link>
       <pubDate>Wed, 11 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1609/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E7%BC%96%E8%AF%91pytorch-%E7%9A%84cuda%E6%8F%92%E4%BB%B6%E7%9A%84%E8%B8%A9%E5%9D%91%E8%BF%87%E7%A8%8B/</guid>
       <description>&lt;p&gt;今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -169,9 +175,9 @@
     </item>
     <item>
       <title>常用git操作</title>
-      <link>http://119.91.218.8/zh/posts/1429/</link>
+      <link>http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Tue, 10 Dec 2024 04:09:30 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1429/</guid>
+      <guid>http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/</guid>
       <description>&lt;h3 id=&#34;丢弃更改&#34;&gt;丢弃更改&lt;/h3&gt;
 &lt;h4 id=&#34;1-丢弃工作区的未暂存更改&#34;&gt;1. &lt;strong&gt;丢弃工作区的未暂存更改&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;如果你在工作区修改了文件但尚未暂存（使用 &lt;code&gt;git add&lt;/code&gt;），可以使用以下命令将文件恢复到上一次提交时的状态：&lt;/p&gt;
@@ -187,9 +193,9 @@
     </item>
     <item>
       <title>FlashAttention Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
-      <link>http://119.91.218.8/zh/posts/1647/</link>
+      <link>http://119.91.218.8/zh/posts/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness/</link>
       <pubDate>Sun, 11 Aug 2024 16:12:08 +0000</pubDate>
-      <guid>http://119.91.218.8/zh/posts/1647/</guid>
+      <guid>http://119.91.218.8/zh/posts/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness/</guid>
       <description>&lt;h2 id=&#34;2-背景&#34;&gt;2 背景&lt;/h2&gt;
 &lt;p&gt;我们提供了一些关于现代硬件（GPU）上常见深度学习操作性能特性的背景信息，并描述了注意力机制的标准实现。&lt;/p&gt;
 &lt;h3 id=&#34;21-硬件性能&#34;&gt;2.1 硬件性能&lt;/h3&gt;

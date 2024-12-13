@@ -4,9 +4,8 @@ tags:
   - 数学
   - 机器学习
 title: L平滑
-slug: 14:08
 share: true
-canonicalURL: ""
+canonicalURL: 
 keywords: 
 description: 
 series: 系列

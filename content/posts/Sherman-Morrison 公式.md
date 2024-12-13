@@ -44,6 +44,7 @@ Sherman-Morrison 公式在数值计算中非常有用，因为它允许我们在
 - 取$A = I_m$，因此$A^{-1} = I_m$。
 - 取$u = \mathbf{1}_m$，$v = \mathbf{1}_m$。
 代入 Sherman-Morrison 公式：
+
 $$
 \begin{align*}
 
@@ -53,7 +54,7 @@ $$
 
 \end{align*}
 $$
-因为：-$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
+因为：$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
 - 最终得到：
 $$  
 (I_m + \mathbf{1}_m \mathbf{1}_m^\top)^{-1} = I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{m + 1}

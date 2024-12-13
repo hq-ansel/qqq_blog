@@ -25,13 +25,9 @@ Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一
 公式如下：
   
 
-$$
+$$(A + u v^\top)^{-1} = A^{-1} - \frac{A^{-1} u v^\top A^{-1}}{1 + v^\top A^{-1} u}
 
-(A + u v^\top)^{-1} = A^{-1} - \frac{A^{-1} u v^\top A^{-1}}{1 + v^\top A^{-1} u}
-
-$$
-
-**解释：**
+$$**解释：**
   
 - $A$是一个可逆的$n \times n$矩阵。
 - $u$和$v$是$n \times 1$的列向量。
@@ -49,9 +45,7 @@ Sherman-Morrison 公式在数值计算中非常有用，因为它允许我们在
 - 取$A = I_m$，因此$A^{-1} = I_m$。
 - 取$u = \mathbf{1}_m$，$v = \mathbf{1}_m$。
 代入 Sherman-Morrison 公式：
-$$
-
-\begin{align*}
+$$\begin{align*}
 
 \left( I_m + \mathbf{1}_m \mathbf{1}_m^\top \right)^{-1} &= I_m^{-1} - \frac{I_m^{-1} \mathbf{1}_m \mathbf{1}_m^\top I_m^{-1}}{1 + \mathbf{1}_m^\top I_m^{-1} \mathbf{1}_m} \\
 
@@ -59,18 +53,13 @@ $$
 
 \end{align*}
 
-$$
-
-因为：
+$$因为：
 -$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
 - 最终得到：
-$$
+$$  (I_m + \mathbf{1}_m \mathbf{1}_m^\top)^{-1} = I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{m + 1}
 
-  (I_m + \mathbf{1}_m \mathbf{1}_m^\top)^{-1} = I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{m + 1}
-
-$$
-
-**总结：**
+$$**总结：**
 
 
 Sherman-Morrison 公式提供了一种高效的方法来计算秩为 1 更新矩阵的逆。在您的问题中，我们利用该公式计算了特定矩阵的逆，从而简化了后续的推导过程。
+

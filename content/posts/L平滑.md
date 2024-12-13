@@ -35,9 +35,7 @@ math: "true"
    最小的L值可以通过Hessian的最大特征值得到，即
    $$
    L = \max_{x \in \mathbb{R}^d} \|\nabla^2 f(x)\|。
-   $$
-
-3. **稀疏子空间中的L平滑性**：若将函数定义在稀疏子空间（一个低维空间）中，那么由于Hessian在子空间的限制，梯度变化受到更多约束，全局L平滑常数有可能会减小。公式
+   $$3. **稀疏子空间中的L平滑性**：若将函数定义在稀疏子空间（一个低维空间）中，那么由于Hessian在子空间的限制，梯度变化受到更多约束，全局L平滑常数有可能会减小。公式
    $$
    \|\nabla^2 f(x)\| = \max_{v \in \mathbb{R}^d \setminus 0} \frac{\nabla^2 f(x) \cdot v}{\|v\|} \geq \max_{v \in S \setminus 0} \frac{\nabla^2 f(x) \cdot v}{\|v\|}
    $$

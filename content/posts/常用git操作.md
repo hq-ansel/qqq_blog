@@ -4,7 +4,6 @@ tags:
   - "#开发八股"
   - 开发八股
 title: 常用git操作
-slug: 14:29
 share: true
 canonicalURL: ""
 keywords:

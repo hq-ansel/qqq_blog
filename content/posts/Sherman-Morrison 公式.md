@@ -54,8 +54,7 @@ $$
 
 \end{align*}
 $$
-因为：
--$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
+因为：-$\mathbf{1}_m^\top \mathbf{1}_m = m$，所以分母为$1 + m$。
 - 最终得到：
 $$  
 (I_m + \mathbf{1}_m \mathbf{1}_m^\top)^{-1} = I_m - \frac{\mathbf{1}_m \mathbf{1}_m^\top}{m + 1}
@@ -63,5 +62,5 @@ $$
 **总结：**
 
 
-Sherman-Morrison 公式提供了一种高效的方法来计算秩为 1 更新矩阵的逆。在您的问题中，我们利用该公式计算了特定矩阵的逆，从而简化了后续的推导过程。
+Sherman-Morrison 公式提供了一种高效的方法来计算秩为 1 更新矩阵的逆。
 

@@ -13,7 +13,7 @@ lastmod:
 lang: cn
 cover:
   image: 
-author: heqi
+author: qqq
 dir: posts
 ---
 

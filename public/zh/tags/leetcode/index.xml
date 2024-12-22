@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Leetcode on qqq的博客</title>
+    <link>http://119.91.218.8/zh/tags/leetcode/</link>
+    <description>Recent content in Leetcode on qqq的博客</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 13 Dec 2024 21:12:59 +0800</lastBuildDate>
+    <atom:link href="http://119.91.218.8/zh/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>leetcode 49 字母异位词</title>
+      <link>http://119.91.218.8/zh/posts/leetcode-49-%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/</link>
+      <pubDate>Fri, 13 Dec 2024 21:12:59 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/leetcode-49-%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;两个字符串互为字母异位词，当且仅当两个字符串包含的字母相同。同一组字母异位词中的字符串具备相同点，可以使用相同点作为一组字母异位词的标志，使用哈希表存储每一组字母异位词，哈希表的键为一组字母异位词的标志，哈希表的值为一组字母异位词列表。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

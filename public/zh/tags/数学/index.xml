@@ -20,13 +20,19 @@
       <link>http://119.91.218.8/zh/posts/%E8%BE%B9%E9%99%85%E7%86%B5marginal-entropy/</link>
       <pubDate>Fri, 13 Dec 2024 14:12:49 +0800</pubDate>
       <guid>http://119.91.218.8/zh/posts/%E8%BE%B9%E9%99%85%E7%86%B5marginal-entropy/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;边际熵（Marginal Entropy）&lt;/strong&gt; 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为：
-$$
+      <description>$$
 H(X) = - \sum_x p(x) \log p(x)
-$$或对于连续变量：
-$$
-H(X) = - \int p(x) \log p(x) , dx
-$$&lt;/p&gt;</description>
+$$$$
+H(X) = - \int p(x) \log p(x) \, dx
+$$&lt;h3 id=&#34;边际熵的解释&#34;&gt;边际熵的解释&lt;/h3&gt;
+&lt;p&gt;边际熵表示我们在知道变量 $X$ 的概率分布情况下，仍然对 $X$ 的取值存在的平均不确定性。它反映了 $X$ 本身携带的信息量。值越大，说明变量 $X$ 的不确定性越高，信息量也越多；相反，值越小，说明变量的取值更加确定。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lipschitz连续性与收敛性</title>
+      <link>http://119.91.218.8/zh/posts/lipschitz%E8%BF%9E%E7%BB%AD%E6%80%A7%E4%B8%8E%E6%94%B6%E6%95%9B%E6%80%A7/</link>
+      <pubDate>Fri, 13 Dec 2024 14:12:38 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/lipschitz%E8%BF%9E%E7%BB%AD%E6%80%A7%E4%B8%8E%E6%94%B6%E6%95%9B%E6%80%A7/</guid>
+      <description>&lt;p&gt;这段内容涉及&lt;strong&gt;L平滑性&lt;/strong&gt;在&lt;strong&gt;稀疏子空间&lt;/strong&gt;中的推广和应用。经典的L平滑性定义用于描述函数在不同点之间的梯度变化程度。当函数在某个子空间（如稀疏子空间）中定义时，L平滑常数往往会减少，反映出函数在较小的区域内变化的“平滑性”增大。&lt;/p&gt;</description>
     </item>
     <item>
       <title>L平滑</title>

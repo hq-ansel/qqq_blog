@@ -6,8 +6,16 @@
     <description>Recent content in Linux on qqq的博客</description>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 11 Dec 2024 19:12:38 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2024 12:12:30 +0800</lastBuildDate>
     <atom:link href="http://119.91.218.8/zh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>netcat与socat</title>
+      <link>http://119.91.218.8/zh/posts/netcat%E4%B8%8Esocat/</link>
+      <pubDate>Fri, 20 Dec 2024 12:12:30 +0800</pubDate>
+      <guid>http://119.91.218.8/zh/posts/netcat%E4%B8%8Esocat/</guid>
+      <description>&lt;p&gt;这周由于项目历史遗留问题，会碰见访问端口被写死的情况，出于偷懒不想修改大批量的代码，于是了解了一下socat这个工具；
+需要了解socat，首先会了解与其功能相似的netcat&lt;/p&gt;</description>
+    </item>
     <item>
       <title>fish shell 配置</title>
       <link>http://119.91.218.8/zh/posts/fish-shell-%E9%85%8D%E7%BD%AE/</link>

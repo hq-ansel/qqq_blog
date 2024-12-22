@@ -84,7 +84,7 @@ outputs:
 params:
     defaultTheme: auto  # defaultTheme: light or  dark
     disableThemeToggle: false
-    DateFormat: "2024-09-02"
+    dateFormat: "2006-01-02"
     ShowShareButtons: true
     ShowReadingTime: true
     # disableSpecialistPost: true
@@ -165,6 +165,18 @@ markup:
     goldmark:
         renderer:
             unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+        extensions: 
+            passthrough:
+              delimiters:
+                block:
+                - - \[
+                  - \]
+                - - $$
+                  - $$
+                inline:
+                - - \(
+                  - \)
+              enable: true
     highlight:
         # anchorLineNos: true
         codeFences: true

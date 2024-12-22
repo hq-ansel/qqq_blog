@@ -144,6 +144,113 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">kv-cache讨论
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前提条件 输入与隐藏状态
+输入序列 $x$ 的形状为 $(batch, len)$ 。 第 $i$ 层的输入激活值为 $hiddenstate_{i-1}$ ，形状为 $(batch, len, hiddensize)$ 。 第 $i$ 层的输出为 $hiddenstate_i$ ，形状同样为 $(batch, len, hiddensize)$ 。 单个 Token 的处理
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-20 17:12:56 +0800 CST'>2024-12-20</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to kv-cache讨论" href="http://119.91.218.8/zh/posts/kv-cache%E8%AE%A8%E8%AE%BA/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">netcat与socat
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>这周由于项目历史遗留问题，会碰见访问端口被写死的情况，出于偷懒不想修改大批量的代码，于是了解了一下socat这个工具； 需要了解socat，首先会了解与其功能相似的netcat
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-20 12:12:30 +0800 CST'>2024-12-20</span>&nbsp;·&nbsp;5 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to netcat与socat" href="http://119.91.218.8/zh/posts/netcat%E4%B8%8Esocat/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Cpp函数对象
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>函数对象（Function Objects）、Lambda 表达式 和 类的成员函数 是 C&#43;&#43; 中调用函数行为的三种实现方式，它们在语法、用途和底层实现上有所不同。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-16 21:12:17 +0800 CST'>2024-12-16</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to Cpp函数对象" href="http://119.91.218.8/zh/posts/cpp%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CppSTL map系列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>C&#43;&#43; STL 中 map 与 unordered_map 的使用笔记和比较
+1. 简介 容器类型 map unordered_map 实现机制 红黑树（自平衡二叉搜索树） 哈希表 键的顺序 按键的升序（或自定义排序） 无序（哈希值决定元素位置） 时间复杂度 插入、删除、查找均为 O(log⁡n) 插入、删除、查找均为 O(1)（均摊复杂度） 内存使用 较少 较多（需要额外的哈希表存储） 适用场景 需要有序的数据（按键排序） 快速查找、插入，且不要求有序 线程安全性 非线程安全 非线程安全 2. 头文件 1 2 #include &lt;map&gt; #include &lt;unordered_map&gt; 3. 基本操作比较 定义和初始化 1 2 3 4 5 6 7 8 9 10 std::map&lt;KeyType, ValueType, Compare&gt; std::unordered_map&lt;KeyType, ValueType, Hash, KeyEqual&gt; std::map&lt;int, std::string&gt; m; std::unordered_map&lt;int, std::string&gt; um; std::map&lt;int, std::string&gt; m2 = {{1, &#34;one&#34;}, {2, &#34;two&#34;}}; std::unordered_map&lt;int, std::string&gt; um2 = {{1, &#34;one&#34;}, {2, &#34;two&#34;}}; 插入元素 1 2 3 4 5 6 7 8 m[1] = &#34;hello&#34;; um[1] = &#34;hello&#34;; m.insert({2, &#34;world&#34;}); um.insert({2, &#34;world&#34;}); m.emplace(3, &#34;C&#43;&#43;&#34;); um.emplace(3, &#34;C&#43;&#43;&#34;); 访问元素 1 2 3 4 5 std::string val = m[1]; // 若键不存在，会创建默认值 std::string val = um[1]; // 若键不存在，也会创建默认值 std::string val = m.at(2); // 若键不存在，抛出异常 std::string val = um.at(2); // 同上 查找元素 1 2 3 4 5 6 7 if (m.find(3) != m.end()) { std::cout &lt;&lt; &#34;Found in map&#34; &lt;&lt; std::endl; } if (um.find(3) != um.end()) { std::cout &lt;&lt; &#34;Found in unordered_map&#34; &lt;&lt; std::endl; } 遍历容器 1 2 3 4 5 6 7 8 9 // 遍历 map for (const auto&amp; [key, value] : m) { std::cout &lt;&lt; &#34;Key: &#34; &lt;&lt; key &lt;&lt; &#34;, Value: &#34; &lt;&lt; value &lt;&lt; std::endl; } // 遍历 unordered_map for (const auto&amp; [key, value] : um) { std::cout &lt;&lt; &#34;Key: &#34; &lt;&lt; key &lt;&lt; &#34;, Value: &#34; &lt;&lt; value &lt;&lt; std::endl; } 删除元素 1 2 3 4 5 m.erase(1); // 按键值删除 um.erase(1); // 同上 m.erase(m.begin()); // 按迭代器删除 um.erase(um.begin()); 清空容器 1 2 m.clear(); um.clear(); 4. 性能对比 时间复杂度
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-16 20:12:40 +0800 CST'>2024-12-16</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to CppSTL map系列" href="http://119.91.218.8/zh/posts/cppstl-map%E7%B3%BB%E5%88%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">leetcode 49 字母异位词
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 两个字符串互为字母异位词，当且仅当两个字符串包含的字母相同。同一组字母异位词中的字符串具备相同点，可以使用相同点作为一组字母异位词的标志，使用哈希表存储每一组字母异位词，哈希表的键为一组字母异位词的标志，哈希表的值为一组字母异位词列表。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:59 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to leetcode 49 字母异位词" href="http://119.91.218.8/zh/posts/leetcode-49-%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">cpp Lambda表达式与自定义哈希函数与decltype
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在leetcode 49中的官方解答存在lambda表达式，与decltype与自定已哈希函数的用法的例子
+1 2 3 4 5 auto arrayHash = [fn = hash&lt;int&gt;{}] (const array&lt;int, 26&gt;&amp; arr) -&gt; size_t { return accumulate(arr.begin(), arr.end(), 0u, [&amp;](size_t acc, int num) { return (acc &lt;&lt; 1) ^ fn(num); }); }; 1 自定义哈希函数 背景： 在 std::unordered_map 或 std::unordered_set 中，键需要能够被哈希以支持高效查找。C&#43;&#43; 标准库对基本类型（如 int、std::string 等）和部分标准容器（如 std::pair）提供了默认的哈希实现。但对于一些自定义类型（如 std::array&lt;int, 26&gt;），没有默认的哈希函数，需要开发者提供。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:56 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to cpp Lambda表达式与自定义哈希函数与decltype" href="http://119.91.218.8/zh/posts/cpp-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E4%B8%8Edecltype/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">and 符号在cpp中的用途
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>总结表 用途 含义 示例 地址运算符 获取变量的地址 int* ptr = &amp;x; 引用声明 声明一个变量的引用 int&amp; ref = x; 按位与 执行按位与操作 int c = a &amp; b; 左值引用 函数接受一个左值引用 void func(int&amp; n); 右值引用（&amp;&amp;） 函数接受一个右值引用 void func(int&amp;&amp; n); 函数返回类型 返回一个引用 int&amp; func(); 类型推导 使用 decltype 推导引用类型 decltype(x)&amp; ref = x; 指针和引用类型 在类型声明中表示引用或地址操作 int* ptr = &amp;x; 重载运算符 自定义按位与或按位与赋值运算符 Example&amp; operator&amp;(Example); 1. 地址运算符 &amp; 用于获取变量的内存地址。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:27 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to and 符号在cpp中的用途" href="http://119.91.218.8/zh/posts/and-%E7%AC%A6%E5%8F%B7%E5%9C%A8cpp%E4%B8%AD%E7%9A%84%E7%94%A8%E9%80%94/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">cpp STL pushback 与 emplace_back的区别
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在 C&#43;&#43; 的 STL 容器（如 std::vector、std::deque）中，push_back 和 emplace_back 是用于在容器尾部插入元素的两种方法，它们的主要区别在于插入方式和效率。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:10 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to cpp STL pushback 与 emplace_back的区别" href="http://119.91.218.8/zh/posts/cpp-stl-pushback-%E4%B8%8E-emplace_back%E7%9A%84%E5%8C%BA%E5%88%AB/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Sherman-Morrison 公式
     </h2>
   </header>
@@ -151,7 +258,7 @@
     <p>Sherman-Morrison 公式是线性代数中的一个重要结果，用于计算一个可逆矩阵经过秩为 1 的更新后的逆矩阵。具体来说，当我们有一个可逆的 $n \times n$矩阵$A$ 和两个列向量$u$、$v$ 时，Sherman-Morrison 公式给出了矩阵$A &#43; u v^\top$ 的逆的显式表达式。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-13 14:12:57 +0800 CST'>131312-09-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
+  <footer class="entry-footer"><span title='2024-12-13 14:12:57 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
   <a class="entry-link" aria-label="post link to Sherman-Morrison 公式" href="http://119.91.218.8/zh/posts/sherman-morrison-%E5%85%AC%E5%BC%8F/"></a>
 </article>
 
@@ -161,123 +268,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>边际熵（Marginal Entropy） 是信息论中的一个概念，用来衡量单个随机变量的不确定性或信息量。在数学上，如果随机变量 $X$ 的概率分布为 $p(x)$，那么 $X$ 的边际熵 $H(X)$ 定义为： $$ H(X) = - \sum_x p(x) \log p(x) $$或对于连续变量： $$ H(X) = - \int p(x) \log p(x) , dx $$
+    <p>$$ H(X) = - \sum_x p(x) \log p(x) $$$$ H(X) = - \int p(x) \log p(x) \, dx $$边际熵的解释 边际熵表示我们在知道变量 $X$ 的概率分布情况下，仍然对 $X$ 的取值存在的平均不确定性。它反映了 $X$ 本身携带的信息量。值越大，说明变量 $X$ 的不确定性越高，信息量也越多；相反，值越小，说明变量的取值更加确定。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-13 14:12:49 +0800 CST'>131312-09-13</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;heqi</footer>
+  <footer class="entry-footer"><span title='2024-12-13 14:12:49 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;qqq</footer>
   <a class="entry-link" aria-label="post link to 边际熵（Marginal Entropy" href="http://119.91.218.8/zh/posts/%E8%BE%B9%E9%99%85%E7%86%B5marginal-entropy/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">L平滑
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>这段内容涉及L平滑性在稀疏子空间中的推广和应用。经典的L平滑性定义用于描述函数在不同点之间的梯度变化程度。当函数在某个子空间（如稀疏子空间）中定义时，L平滑常数往往会减少，反映出函数在较小的区域内变化的“平滑性”增大。以下是详细解释：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-13 14:12:38 +0800 CST'>131312-09-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to L平滑" href="http://119.91.218.8/zh/posts/l%E5%B9%B3%E6%BB%91/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">低频归纳偏差假设
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Low-frequency inductive bias（低频归纳偏差）是一种在机器学习模型中的假设或倾向，特别是在深度学习领域，模型更容易学习低频信号或特征，而不是高频信号。简单来说，模型倾向于捕捉数据中的平滑、缓慢变化的模式，而不太容易学习快速变化或具有高频率的细节。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-13 14:12:21 +0800 CST'>131312-09-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 低频归纳偏差假设" href="http://119.91.218.8/zh/posts/%E4%BD%8E%E9%A2%91%E5%BD%92%E7%BA%B3%E5%81%8F%E5%B7%AE%E5%81%87%E8%AE%BE/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">互信息与模型
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 互信息（Mutual Information） 互信息 $I(h, x)$ 和 $I(h, y)$ 是用来衡量特征 $h$ 中包含的输入 $x$ 和标签 $y$ 的信息量的。互信息可以帮助我们了解特征中保留的总体信息量以及与任务相关的信息量。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-13 14:12:03 +0800 CST'>131312-09-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 互信息与模型" href="http://119.91.218.8/zh/posts/%E4%BA%92%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%A8%A1%E5%9E%8B/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">fish shell 配置
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 安装 Fish Shell 步骤 更新系统：
-1 sudo apt update &amp;&amp; sudo apt upgrade -y 安装 Fish：
-1 sudo apt install fish -y 验证安装：
-1 fish --version 2. 设置 Fish 为默认 Shell 确认 Fish 的路径：
-1 which fish 通常路径为 /usr/bin/fish。
-将 Fish 设置为默认 Shell：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-11 19:12:38 +0800 CST'>111112-09-11</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to fish shell 配置" href="http://119.91.218.8/zh/posts/fish-shell-%E9%85%8D%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">git的协作
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在与他人协作开发一个功能时，使用 git rebase 可以保持提交历史的清洁和线性化。以下是一个推荐的 Git 工作流程，它结合了分支管理和 rebase，适合在多人协作中保持历史干净：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-11 19:12:31 +0800 CST'>111112-09-11</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to git的协作" href="http://119.91.218.8/zh/posts/git%E7%9A%84%E5%8D%8F%E4%BD%9C/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">电源故障查询指令
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>ipmitool sdr elist 命令用于显示系统传感器的状态信息。
-SEL 和 SDR 是 IPMI（Intelligent Platform Management Interface）中的两个重要概念，它们分别表示系统事件日志和传感器数据记录。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>11119-09-11</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 电源故障查询指令" href="http://119.91.218.8/zh/posts/%E7%94%B5%E6%BA%90%E6%95%85%E9%9A%9C%E6%9F%A5%E8%AF%A2%E6%8C%87%E4%BB%A4/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">记录一次编译pytorch 的cuda插件的踩坑过程
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>今天在尝试复现quip#的时候发现了问题，在进行setup install的时候发现
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 [1/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 FAILED: /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o.d -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/TH -I/home/ubuntu/miniconda3/envs/quant/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda/include -I/home/ubuntu/miniconda3/envs/quant/include/python3.11 -c -c /home/ubuntu/data/exp/quip-sharp/quiptools/quiptools.cu -o /home/ubuntu/data/exp/quip-sharp/quiptools/build/temp.linux-x86_64-cpython-311/quiptools.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options &#39;&#39;&#34;&#39;&#34;&#39;-fPIC&#39;&#34;&#39;&#34;&#39;&#39; -O2 -g -Xcompiler -rdynamic -lineinfo -std=c&#43;&#43;20 -DTORCH_API_INCLUDE_EXTENSION_H &#39;-DPYBIND11_COMPILER_TYPE=&#34;_gcc&#34;&#39; &#39;-DPYBIND11_STDLIB=&#34;_libstdcpp&#34;&#39; &#39;-DPYBIND11_BUILD_ABI=&#34;_cxxabi1011&#34;&#39; -DTORCH_EXTENSION_NAME=quiptools_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 /usr/include/x86_64-linux-gnu/bits/floatn-common.h(214): error: invalid combination of type specifiers typedef float _Float32; ^ /usr/include/x86_64-linux-gnu/bits/floatn-common.h(251): error: invalid combination of type specifiers typedef double _Float64; 事实上只要清理干净使用的gcc和g&#43;&#43;版本
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-11 04:09:30 +0000 UTC'>11119-09-11</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 记录一次编译pytorch 的cuda插件的踩坑过程" href="http://119.91.218.8/zh/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E7%BC%96%E8%AF%91pytorch-%E7%9A%84cuda%E6%8F%92%E4%BB%B6%E7%9A%84%E8%B8%A9%E5%9D%91%E8%BF%87%E7%A8%8B/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">常用git操作
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>丢弃更改 1. 丢弃工作区的未暂存更改 如果你在工作区修改了文件但尚未暂存（使用 git add），可以使用以下命令将文件恢复到上一次提交时的状态：
-1 git checkout -- &lt;file&gt; 这个命令会丢弃指定文件的更改，恢复到上次提交的版本。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-12-10 04:09:30 +0000 UTC'>10109-09-10</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
-  <a class="entry-link" aria-label="post link to 常用git操作" href="http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

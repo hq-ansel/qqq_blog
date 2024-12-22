@@ -144,6 +144,59 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cpp函数对象
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>函数对象（Function Objects）、Lambda 表达式 和 类的成员函数 是 C&#43;&#43; 中调用函数行为的三种实现方式，它们在语法、用途和底层实现上有所不同。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-16 21:12:17 +0800 CST'>2024-12-16</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to Cpp函数对象" href="http://119.91.218.8/zh/posts/cpp%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CppSTL map系列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>C&#43;&#43; STL 中 map 与 unordered_map 的使用笔记和比较
+1. 简介 容器类型 map unordered_map 实现机制 红黑树（自平衡二叉搜索树） 哈希表 键的顺序 按键的升序（或自定义排序） 无序（哈希值决定元素位置） 时间复杂度 插入、删除、查找均为 O(log⁡n) 插入、删除、查找均为 O(1)（均摊复杂度） 内存使用 较少 较多（需要额外的哈希表存储） 适用场景 需要有序的数据（按键排序） 快速查找、插入，且不要求有序 线程安全性 非线程安全 非线程安全 2. 头文件 1 2 #include &lt;map&gt; #include &lt;unordered_map&gt; 3. 基本操作比较 定义和初始化 1 2 3 4 5 6 7 8 9 10 std::map&lt;KeyType, ValueType, Compare&gt; std::unordered_map&lt;KeyType, ValueType, Hash, KeyEqual&gt; std::map&lt;int, std::string&gt; m; std::unordered_map&lt;int, std::string&gt; um; std::map&lt;int, std::string&gt; m2 = {{1, &#34;one&#34;}, {2, &#34;two&#34;}}; std::unordered_map&lt;int, std::string&gt; um2 = {{1, &#34;one&#34;}, {2, &#34;two&#34;}}; 插入元素 1 2 3 4 5 6 7 8 m[1] = &#34;hello&#34;; um[1] = &#34;hello&#34;; m.insert({2, &#34;world&#34;}); um.insert({2, &#34;world&#34;}); m.emplace(3, &#34;C&#43;&#43;&#34;); um.emplace(3, &#34;C&#43;&#43;&#34;); 访问元素 1 2 3 4 5 std::string val = m[1]; // 若键不存在，会创建默认值 std::string val = um[1]; // 若键不存在，也会创建默认值 std::string val = m.at(2); // 若键不存在，抛出异常 std::string val = um.at(2); // 同上 查找元素 1 2 3 4 5 6 7 if (m.find(3) != m.end()) { std::cout &lt;&lt; &#34;Found in map&#34; &lt;&lt; std::endl; } if (um.find(3) != um.end()) { std::cout &lt;&lt; &#34;Found in unordered_map&#34; &lt;&lt; std::endl; } 遍历容器 1 2 3 4 5 6 7 8 9 // 遍历 map for (const auto&amp; [key, value] : m) { std::cout &lt;&lt; &#34;Key: &#34; &lt;&lt; key &lt;&lt; &#34;, Value: &#34; &lt;&lt; value &lt;&lt; std::endl; } // 遍历 unordered_map for (const auto&amp; [key, value] : um) { std::cout &lt;&lt; &#34;Key: &#34; &lt;&lt; key &lt;&lt; &#34;, Value: &#34; &lt;&lt; value &lt;&lt; std::endl; } 删除元素 1 2 3 4 5 m.erase(1); // 按键值删除 um.erase(1); // 同上 m.erase(m.begin()); // 按迭代器删除 um.erase(um.begin()); 清空容器 1 2 m.clear(); um.clear(); 4. 性能对比 时间复杂度
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-16 20:12:40 +0800 CST'>2024-12-16</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to CppSTL map系列" href="http://119.91.218.8/zh/posts/cppstl-map%E7%B3%BB%E5%88%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">and 符号在cpp中的用途
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>总结表 用途 含义 示例 地址运算符 获取变量的地址 int* ptr = &amp;x; 引用声明 声明一个变量的引用 int&amp; ref = x; 按位与 执行按位与操作 int c = a &amp; b; 左值引用 函数接受一个左值引用 void func(int&amp; n); 右值引用（&amp;&amp;） 函数接受一个右值引用 void func(int&amp;&amp; n); 函数返回类型 返回一个引用 int&amp; func(); 类型推导 使用 decltype 推导引用类型 decltype(x)&amp; ref = x; 指针和引用类型 在类型声明中表示引用或地址操作 int* ptr = &amp;x; 重载运算符 自定义按位与或按位与赋值运算符 Example&amp; operator&amp;(Example); 1. 地址运算符 &amp; 用于获取变量的内存地址。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:27 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to and 符号在cpp中的用途" href="http://119.91.218.8/zh/posts/and-%E7%AC%A6%E5%8F%B7%E5%9C%A8cpp%E4%B8%AD%E7%9A%84%E7%94%A8%E9%80%94/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">cpp STL pushback 与 emplace_back的区别
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在 C&#43;&#43; 的 STL 容器（如 std::vector、std::deque）中，push_back 和 emplace_back 是用于在容器尾部插入元素的两种方法，它们的主要区别在于插入方式和效率。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-13 21:12:10 +0800 CST'>2024-12-13</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;qqq</footer>
+  <a class="entry-link" aria-label="post link to cpp STL pushback 与 emplace_back的区别" href="http://119.91.218.8/zh/posts/cpp-stl-pushback-%E4%B8%8E-emplace_back%E7%9A%84%E5%8C%BA%E5%88%AB/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">git的协作
     </h2>
   </header>
@@ -151,7 +204,7 @@
     <p>在与他人协作开发一个功能时，使用 git rebase 可以保持提交历史的清洁和线性化。以下是一个推荐的 Git 工作流程，它结合了分支管理和 rebase，适合在多人协作中保持历史干净：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-11 19:12:31 +0800 CST'>111112-09-11</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
+  <footer class="entry-footer"><span title='2024-12-11 19:12:31 +0800 CST'>2024-12-11</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
   <a class="entry-link" aria-label="post link to git的协作" href="http://119.91.218.8/zh/posts/git%E7%9A%84%E5%8D%8F%E4%BD%9C/"></a>
 </article>
 
@@ -165,7 +218,7 @@
 1 git checkout -- &lt;file&gt; 这个命令会丢弃指定文件的更改，恢复到上次提交的版本。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-10 04:09:30 +0000 UTC'>10109-09-10</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;heqi</footer>
+  <footer class="entry-footer"><span title='2024-12-10 04:09:30 +0000 UTC'>2024-12-10</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;qqq</footer>
   <a class="entry-link" aria-label="post link to 常用git操作" href="http://119.91.218.8/zh/posts/%E5%B8%B8%E7%94%A8git%E6%93%8D%E4%BD%9C/"></a>
 </article>
     </main>

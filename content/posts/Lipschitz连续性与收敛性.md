@@ -48,3 +48,66 @@ $$
 f(y) \leq f(x) + \langle \nabla f(x), y - x\rangle + \frac{L}{2} \|y - x\|^2
 $$
 
+
+
+### 某些推论
+
+对于L(x) 是Lipschitz连续的函数，且二阶导数存在。
+
+存在一个Lipschitz常数$L$，当更新步长为$\eta$时，有
+$$
+f(\theta_{t+1}) = f(\theta_t) - \eta \nabla f(\theta_t) \leq f(\theta_t) - \eta L \| \theta_t - \theta_{t-1} \|
+$$
+
+且 如果函数$\nabla f(x)$是Lipschitz连续的且$\|\nabla f(y)-\nabla f(x)\| \leq L \|y-x\|$，则
+$$
+\|f(y) -f(x) - \langle \nabla f(x), y - x\rangle \| \leq \frac{L}{2} \|y - x\|^2
+$$
+等价于
+$$
+\begin{aligned}
+f(y) & \leq f(x) + \langle \nabla f(x), y - x\rangle + \frac{L}{2} \|y - x\|^2 \\
+f(y) & \geq f(x)  + \langle \nabla f(x), y - x\rangle - \frac{L}{2} \|y - x\|^2
+\end{aligned}
+$$
+
+证明
+
+$$
+\begin{aligned}
+f(y) & = f(x) +\int_{0}^{1} \langle \nabla f(x+\tau(y -x)) , y - x\rangle d\tau \\
+ &= f(x) + \langle \nabla f(x), y - x\rangle + \int_{0}^{1} \langle \nabla f(x+\tau(y-x))- \nabla f(x), y-x\rangle d\tau 
+\end{aligned}
+$$
+于是
+$$
+\begin{aligned}
+\|f(y) - f(x) - \langle \nabla f(x), y - x\rangle |\ & = \|\int_{0}^{1} \langle \nabla f(x+\tau(y-x))- \nabla f(x), y-x\rangle d\tau \| \\
+ & \leq \int_{0}^{1} \|\nabla f(x+\tau(y-x))- \nabla f(x)\| d\tau \\
+ & \leq \int_{0}^{1} \|\nabla f(x+\tau(y-x))- \nabla f(x)\| \|y-x\| d\tau \\
+ & \leq \int_{0}^{1} \tau L \|y-x\|^2 d\tau \\
+ & = \frac{L}{2} \|y-x\|^2
+\end{aligned}
+$$
+
+
+
+于是当更新模式为
+
+$$
+\begin{aligned}
+\theta_{t+1} &= \theta_t - \eta E_D(\nabla f(\theta_t)) \\
+\theta_{t+1} - \theta_t &= -\eta E_D(\nabla f(\theta_t)) \\
+\end{aligned}
+$$
+
+有
+
+$$
+\begin{aligned}
+f(\theta_{t+1})-f(\theta_t) & \leq \langle \nabla f(\theta_t), \theta_{t+1} - \theta_t\rangle + \frac{L}{2} \|\theta_{t+1} - \theta_t\|^2 \\
+&= \langle -\nabla f(\theta_t), -\eta E_D(\nabla f(\theta_t))\rangle + \frac{L}{2} \|-\eta E_D(\nabla f(\theta_t))\|^2 \\
+&= -\eta \langle \nabla f(\theta_t), -E_D(\nabla f(\theta_t))\rangle + \frac{L\eta^2}{2} \|E_D(\nabla f(\theta_t))\|^2
+\end{aligned}
+$$
+
